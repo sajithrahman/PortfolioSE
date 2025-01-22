@@ -1,0 +1,60 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f9;
+}
+
+/* Header Styles */
+header {
+  background: #6c63ff;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header .btn {
+  display: inline-block;
+  background: #fff;
+  color: #6c63ff;
+  padding: 10px 20px;
+  margin-top: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+header .btn:hover {
+  background: #ddd;
+}
+
+/* Section Styles */
+section {
+  padding: 20px;
+}
+
+section#about img {
+  max-width: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.project {
+  margin: 15px 0;
+}
+
+/* Footer Styles */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+

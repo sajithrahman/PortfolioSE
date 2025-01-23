@@ -78,6 +78,18 @@
             </div>
         </section>
     </main>
+
+    <div id="successModal" class="popup-notification" style="display: none;">
+        <div class="popup-content">
+            <div class="popup-header">
+                🎉 <span class="popup-title">Success!</span>
+            </div>
+            <div class="popup-body">
+                <p>Your message has been sent successfully!</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Firebase script -->
     <script>
         // Firebase configuration
@@ -96,6 +108,16 @@
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
 
+        function showNotification() {
+            const notification = document.getElementById("successModal");
+            notification.style.display = "flex"; // Show the notification
+
+            // Automatically hide after 4 seconds
+            setTimeout(() => {
+                notification.style.display = "none";
+            }, 7000); // 7 seconds
+        }
+
         // Form submission handler
         document.getElementById("contactForm").addEventListener("submit", function(event) {
             event.preventDefault();
@@ -111,8 +133,8 @@
                 phone: phone,
                 message: message
             }).then(() => {
-                alert("Message sent successfully!");
-                document.getElementById("contactForm").reset();
+                 showNotification();
+                 document.getElementById("contactForm").reset();
             }).catch((error) => {
                 alert("Error sending message: " + error.message);
             });

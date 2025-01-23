@@ -11707,6 +11707,7 @@ html {
     left: -2vw;
   }
 }
+
 @media (min-width: 1200px) {
   .profile {
     height: 35vw;
@@ -11731,4 +11732,55 @@ html {
     width: 1.5vw;
     left: -2vw;
   }
+}
+
+.popup-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #bb6914;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 9999;
+    animation: fadeInOut 4s ease-in-out forwards;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Popup Content */
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Header */
+.popup-header {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+/* Animation */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 }

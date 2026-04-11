@@ -1,144 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content />
-    <meta name="author" content />
-    <title>Modern Business - SAJITH RAHMAN AM - PORTFOLIO Template</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
-    <!-- Custom Google font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
-    <!-- Firebase JS SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Sajith Rahman A.M - Software Engineer & Odoo Developer. Get in touch for ERP projects, collaborations, and opportunities." />
+  <title>Contact — Sajith Rahman A.M</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="css/portfolio.css" rel="stylesheet" />
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
 </head>
-<body class="d-flex flex-column">
-    <main class="flex-shrink-0">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-            <div class="container px-5">
-                <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">SAJITH RAHMAN AM - PORTFOLIO</span></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Page content-->
-        <section class="py-5">
-            <div class="container px-5">
-                <div class="bg-light rounded-4 py-5 px-4 px-md-5">
-                    <div class="text-center mb-5">
-                        <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                        <h1 class="fw-bolder">Get in touch</h1>
-                        <p class="lead fw-normal text-muted mb-0">Let's work together!</p>
-                    </div>
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-8 col-xl-6">
-                            <form id="contactForm">
-                                <!-- Name input-->
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="name" type="text" placeholder="Enter your name..." required />
-                                    <label for="name">Full name</label>
-                                </div>
-                                <!-- Email address input-->
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="email" type="email" placeholder="name@example.com" required />
-                                    <label for="email">Email address</label>
-                                </div>
-                                <!-- Phone number input-->
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" required />
-                                    <label for="phone">Phone number</label>
-                                </div>
-                                <!-- Message input-->
-                                <div class="form-floating mb-3">
-                                    <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" required></textarea>
-                                    <label for="message">Message</label>
-                                </div>
-                                <!-- Submit Button-->
-                                <div class="d-grid"><button class="btn btn-primary btn-lg" type="submit">Send</button></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
 
-    <div id="successModal" class="popup-notification" style="display: none;">
-        <div class="popup-content">
-            <div class="popup-header">
-                🎉 <span class="popup-title">Success!</span>
-            </div>
-            <div class="popup-body">
-                <p>Your message has been sent successfully!</p>
-            </div>
-        </div>
+<nav class="navbar-advanced scrolled" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-icon">SR</div>
+      <span>sajithrahman.developer</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle"><i class="bi bi-sun-fill" id="themeIcon"></i></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="closeMobileNav()">Home</a>
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="skills.html" onclick="closeMobileNav()">Skills</a>
+  <a href="projects.html" onclick="closeMobileNav()">Projects</a>
+  <a href="resume.html" onclick="closeMobileNav()">Resume</a>
+  <a href="contact.html" onclick="closeMobileNav()">Contact</a>
+</div>
 
-    <!-- Firebase script -->
-    <script>
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyD1PKPYn_3ZtsEtLkRORbY2peEW7mgZNvg",
-            authDomain: "portfoliose-65000.firebaseapp.com",
-            databaseURL: "https://portfoliose-65000-default-rtdb.firebaseio.com",
-            projectId: "portfoliose-65000",
-            storageBucket: "portfoliose-65000.appspot.com",
-            messagingSenderId: "705926805622",
-            appId: "1:705926805622:web:a396a719c9ece3db524757",
-            measurementId: "G-MFFK4Z3CS6"
-        };
+<!-- Page Header -->
+<div class="page-header" style="position:relative;overflow:hidden;">
+  <div class="orb orb-1" style="opacity:0.1;"></div>
+  <div class="orb orb-2" style="opacity:0.08;left:-50px;top:auto;bottom:-50px;"></div>
+  <div class="container-max">
+    <div class="breadcrumb-nav">
+      <a href="index.html">Home</a><span>/</span><span class="current">Contact</span>
+    </div>
+    <div class="section-tag"><i class="bi bi-chat-heart"></i> Get In Touch</div>
+    <h1>Let's <span class="gradient-text">Work Together</span></h1>
+    <p>Have a project in mind or just want to say hello? I'd love to hear from you.</p>
+  </div>
+</div>
 
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
+<!-- Contact Main -->
+<section class="section-padding">
+  <div class="container-max">
+    <div class="contact-grid" data-reveal>
+      <!-- Info -->
+      <div>
+        <div style="margin-bottom:40px;">
+          <div class="section-tag"><i class="bi bi-broadcast"></i> Reach Out</div>
+          <h2 class="section-title" style="font-size:1.8rem;">Let's Start a<br/><span class="gradient-text">Conversation</span></h2>
+          <p style="color:var(--text-secondary);line-height:1.7;margin-top:12px;">Whether you need Odoo customization, API integration, ERP implementation, or just want to collaborate — I'm here and ready to help.</p>
+        </div>
 
-        function showNotification() {
-            const notification = document.getElementById("successModal");
-            notification.style.display = "flex"; // Show the notification
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+          <div class="contact-info-text">
+            <h4>Email</h4>
+            <a href="mailto:sajith.rahman.am@outlook.com">sajith.rahman.am@outlook.com</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+          <div class="contact-info-text">
+            <h4>Location</h4>
+            <p>Calicut / Coimbatore, India</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="bi bi-linkedin"></i></div>
+          <div class="contact-info-text">
+            <h4>LinkedIn</h4>
+            <a href="https://www.linkedin.com/in/sajith-rahman-a-m-3b3130229/" target="_blank">linkedin.com/in/sajith-rahman-a-m</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+          <div class="contact-info-text">
+            <h4>Resume</h4>
+            <a href="assets/sajithrahman_resume2025.pdf" target="_blank">Download PDF Resume</a>
+          </div>
+        </div>
 
-            // Automatically hide after 4 seconds
-            setTimeout(() => {
-                notification.style.display = "none";
-            }, 7000); // 7 seconds
-        }
+        <!-- Availability Banner -->
+        <div class="glass-card" style="padding:20px;margin-top:32px;display:flex;align-items:center;gap:14px;">
+          <div style="width:12px;height:12px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px rgba(74,222,128,0.6);flex-shrink:0;animation:blink 1.5s ease-in-out infinite;"></div>
+          <div>
+            <div style="font-size:0.9rem;font-weight:600;color:var(--text-primary);">Open to Opportunities</div>
+            <div style="font-size:0.8rem;color:var(--text-muted)">Odoo · NetSuite · API · Mobile · Networking</div>
+          </div>
+        </div>
 
-        // Form submission handler
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+        <!-- Social Links -->
+        <div class="social-links" style="margin-top:28px;">
+          <a href="https://www.linkedin.com/in/sajith-rahman-a-m-3b3130229/" target="_blank" class="social-link" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="mailto:sajith.rahman.am@outlook.com" class="social-link" title="Email"><i class="bi bi-envelope-fill"></i></a>
+          <a href="assets/sajithrahman_resume2025.pdf" target="_blank" class="social-link" title="Resume PDF"><i class="bi bi-file-earmark-pdf"></i></a>
+        </div>
+      </div>
 
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const phone = document.getElementById("phone").value;
-            const message = document.getElementById("message").value;
+      <!-- Form -->
+      <div data-reveal="right">
+        <div class="glass-card" style="padding:40px;border-radius:var(--radius-lg);">
+          <h3 style="font-size:1.15rem;font-weight:600;color:var(--text-primary);margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">Send a Message</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:28px;">I usually respond within 24 hours.</p>
 
-            database.ref("contacts").push({
-                name: name,
-                email: email,
-                phone: phone,
-                message: message
-            }).then(() => {
-                 showNotification();
-                 document.getElementById("contactForm").reset();
-            }).catch((error) => {
-                alert("Error sending message: " + error.message);
-            });
-        });
-    </script>
+          <form class="advanced-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <input type="text" id="subject" placeholder="What's this about?" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" placeholder="Tell me about your project, requirements, or just say hi!" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary-glow" style="width:100%;justify-content:center;padding:16px;" id="submitBtn">
+              <i class="bi bi-send-fill"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-padding bg-dark-alt">
+  <div class="container-max">
+    <div style="text-align:center;margin-bottom:48px;" data-reveal>
+      <div class="section-tag"><i class="bi bi-question-circle"></i> FAQ</div>
+      <h2 class="section-title">Common <span class="gradient-text">Questions</span></h2>
+    </div>
+    <div class="grid-2" data-reveal>
+      <div class="glass-card" style="padding:28px;">
+        <h3 style="font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:10px;font-family:'Space Grotesk',sans-serif;"><i class="bi bi-chat-left-dots" style="color:var(--primary-light);margin-right:8px;"></i>Which Odoo versions do you work with?</h3>
+        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">I work with all major Odoo versions from v12 through v19, including both Community and Enterprise editions.</p>
+      </div>
+      <div class="glass-card" style="padding:28px;">
+        <h3 style="font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:10px;font-family:'Space Grotesk',sans-serif;"><i class="bi bi-chat-left-dots" style="color:var(--primary-light);margin-right:8px;"></i>Do you take freelance projects?</h3>
+        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">Yes! I'm open to freelance and contract work for Odoo development, API integrations, and ERP consulting.</p>
+      </div>
+      <div class="glass-card" style="padding:28px;">
+        <h3 style="font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:10px;font-family:'Space Grotesk',sans-serif;"><i class="bi bi-chat-left-dots" style="color:var(--primary-light);margin-right:8px;"></i>What industries have you worked in?</h3>
+        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">Manufacturing, HR & payroll, e-commerce, retail, and multi-company setups primarily in GCC and India regions.</p>
+      </div>
+      <div class="glass-card" style="padding:28px;">
+        <h3 style="font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:10px;font-family:'Space Grotesk',sans-serif;"><i class="bi bi-chat-left-dots" style="color:var(--primary-light);margin-right:8px;"></i>How quickly do you respond?</h3>
+        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;">I typically respond within 24 hours on business days. For urgent inquiries, LinkedIn message is the fastest way to reach me.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="nav-brand" style="text-decoration:none;cursor:default;"><div class="nav-brand-icon">SR</div><span style="background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">sajithrahman.developer</span></div><p>Software Engineer &mdash; Odoo, NetSuite, APIs, Mobile &amp; Networking.</p></div>
+      <div><div class="footer-title">Navigation</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="skills.html">Skills</a></li><li><a href="projects.html">Projects</a></li></ul></div>
+      <div><div class="footer-title">More</div><ul class="footer-links"><li><a href="resume.html">Resume</a></li><li><a href="contact.html">Contact</a></li><li><a href="assets/sajithrahman_resume2025.pdf" target="_blank">Download CV</a></li></ul></div>
+      <div><div class="footer-title">Contact</div><ul class="footer-links"><li><a href="mailto:sajith.rahman.am@outlook.com">sajith.rahman.am@outlook.com</a></li><li><a href="#">Calicut / Coimbatore, India</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Sajith Rahman A.M — All rights reserved.</p><p class="made-with">Made with <span class="heart">❤️</span> and lots of ☕</p></div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast-notification" id="toast">
+  <div class="toast-icon">✅</div>
+  <div class="toast-content">
+    <h4>Message Sent!</h4>
+    <p>I'll get back to you within 24 hours.</p>
+  </div>
+</div>
+
+<script>
+const cursor=document.getElementById('cursor'),follower=document.getElementById('cursorFollower');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function anim(){fx+=(mx-fx)*.12;fy+=(my-fy)*.12;follower.style.left=fx+'px';follower.style.top=fy+'px';requestAnimationFrame(anim);})();
+document.querySelectorAll('a,button,.glass-card').forEach(el=>{el.addEventListener('mouseenter',()=>{cursor.classList.add('active');follower.classList.add('active');});el.addEventListener('mouseleave',()=>{cursor.classList.remove('active');follower.classList.remove('active');});});
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50));
+const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileNav');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');});
+function closeMobileNav(){ham.classList.remove('open');mob.classList.remove('open');}
+document.getElementById('themeToggle').addEventListener('click',()=>{document.body.classList.toggle('light-mode');const icon=document.getElementById('themeIcon');icon.className=document.body.classList.contains('light-mode')?'bi bi-moon-fill':'bi bi-sun-fill';});
+const obs=new IntersectionObserver(entries=>entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('revealed'),i*80);obs.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
+
+// Firebase
+const firebaseConfig={apiKey:"AIzaSyD1PKPYn_3ZtsEtLkRORbY2peEW7mgZNvg",authDomain:"portfoliose-65000.firebaseapp.com",databaseURL:"https://portfoliose-65000-default-rtdb.firebaseio.com",projectId:"portfoliose-65000",storageBucket:"portfoliose-65000.appspot.com",messagingSenderId:"705926805622",appId:"1:705926805622:web:a396a719c9ece3db524757",measurementId:"G-MFFK4Z3CS6"};
+firebase.initializeApp(firebaseConfig);
+const database=firebase.database();
+
+function showToast(){
+  const t=document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),4000);
+}
+
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  btn.innerHTML='<i class="bi bi-hourglass-split"></i> Sending...';
+  btn.disabled=true;
+
+  const data={
+    name:document.getElementById('name').value,
+    email:document.getElementById('email').value,
+    phone:document.getElementById('phone').value,
+    subject:document.getElementById('subject').value,
+    message:document.getElementById('message').value,
+    timestamp:new Date().toISOString()
+  };
+  database.ref('contacts').push(data)
+    .then(()=>{
+      showToast();
+      document.getElementById('contactForm').reset();
+      btn.innerHTML='<i class="bi bi-send-fill"></i> Send Message';
+      btn.disabled=false;
+    })
+    .catch(err=>{
+      alert('Error sending message: '+err.message);
+      btn.innerHTML='<i class="bi bi-send-fill"></i> Send Message';
+      btn.disabled=false;
+    });
+});
+</script>
+<script src="js/transitions.js"></script>
 </body>
 </html>

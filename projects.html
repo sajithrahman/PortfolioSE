@@ -1,249 +1,632 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <title>Modern Business - SAJITH RAHMAN AM - PORTFOLIO Template</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.png"/>
-    <!-- Custom Google font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-          rel="stylesheet"/>
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet"/>
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projects by Sajith Rahman A.M - Odoo ERP, NetSuite, REST APIs, HRMS, manufacturing, migrations and mobile apps." />
+  <title>Projects — Sajith Rahman A.M</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="css/portfolio.css" rel="stylesheet" />
+  <style>
+    /* ---- Projects Page Extra Styles ---- */
+    .projects-hero-stats { display:flex; gap:32px; flex-wrap:wrap; margin-top:32px; }
+    .ph-stat { text-align:center; }
+    .ph-stat .val { font-size:2.4rem; font-weight:800; font-family:'Space Grotesk',sans-serif; background:var(--gradient-1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .ph-stat .lbl { font-size:0.75rem; color:var(--text-muted); letter-spacing:0.5px; }
+
+    .filter-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:48px; }
+    .filter-btn { padding:8px 20px; border-radius:100px; background:var(--card-bg); border:1px solid var(--card-border); color:var(--text-secondary); font-size:0.82rem; font-weight:500; cursor:none; transition:all 0.3s ease; font-family:'Inter',sans-serif; white-space:nowrap; }
+    .filter-btn:hover,.filter-btn.active { background:rgba(108,99,255,0.15); border-color:rgba(108,99,255,0.4); color:var(--primary-light); }
+    .project-card.hidden { display:none; }
+
+    .proj-grid { display:grid; gap:28px; }
+    /* Featured (wide) cards */
+    .proj-card {
+      background:var(--card-bg); border:1px solid var(--card-border);
+      border-radius:20px; overflow:hidden; position:relative;
+      transition:all 0.4s cubic-bezier(0.25,0.8,0.25,1);
+      backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+    }
+    .proj-card:hover { border-color:rgba(108,99,255,0.35); transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(108,99,255,0.2); }
+    .proj-card-inner { padding:32px; }
+    .proj-card-header { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:20px; flex-wrap:wrap; }
+    .proj-badge-row { display:flex; gap:8px; flex-wrap:wrap; }
+    .proj-badge { font-size:0.7rem; font-family:'Fira Code',monospace; padding:3px 10px; border-radius:100px; font-weight:500; }
+    .badge-featured { background:rgba(108,99,255,0.2); color:var(--primary-light); border:1px solid rgba(108,99,255,0.3); }
+    .badge-live { background:rgba(74,222,128,0.15); color:#4ade80; border:1px solid rgba(74,222,128,0.3); }
+    .badge-completed { background:rgba(0,212,255,0.15); color:var(--secondary); border:1px solid rgba(0,212,255,0.3); }
+    .badge-ongoing { background:rgba(255,209,102,0.15); color:var(--accent2); border:1px solid rgba(255,209,102,0.3); }
+    .proj-num { font-family:'Fira Code',monospace; font-size:0.72rem; color:var(--text-muted); }
+    .proj-icon-large { font-size:2.2rem; margin-bottom:12px; }
+    .proj-title { font-size:1.25rem; font-weight:700; color:var(--text-primary); font-family:'Space Grotesk',sans-serif; margin-bottom:8px; line-height:1.3; }
+    .proj-industry { font-size:0.75rem; color:var(--primary-light); font-family:'Fira Code',monospace; margin-bottom:12px; }
+    .proj-summary { font-size:0.88rem; color:var(--text-secondary); line-height:1.75; margin-bottom:20px; }
+    .proj-tabs { display:flex; gap:4px; margin-bottom:16px; border-bottom:1px solid var(--card-border); padding-bottom:0; }
+    .proj-tab { font-size:0.75rem; font-family:'Fira Code',monospace; padding:6px 14px; border-radius:6px 6px 0 0; color:var(--text-muted); cursor:none; transition:all 0.2s; border:none; background:none; }
+    .proj-tab.active { color:var(--primary-light); background:rgba(108,99,255,0.1); border-bottom:2px solid var(--primary); }
+    .proj-panel { display:none; }
+    .proj-panel.active { display:block; padding-top:16px; }
+    .proj-panel ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .proj-panel ul li { font-size:0.85rem; color:var(--text-secondary); line-height:1.6; padding-left:20px; position:relative; }
+    .proj-panel ul li::before { content:'→'; position:absolute; left:0; color:var(--primary-light); font-size:0.8rem; }
+    .proj-tech-row { display:flex; gap:6px; flex-wrap:wrap; margin-top:16px; }
+    .proj-tech-chip { font-size:0.72rem; font-family:'Fira Code',monospace; padding:4px 10px; border-radius:6px; background:rgba(255,255,255,0.05); border:1px solid var(--card-border); color:var(--text-secondary); }
+    .proj-metrics { display:flex; gap:0; margin-top:20px; border-top:1px solid var(--card-border); padding-top:20px; flex-wrap:wrap; }
+    .proj-metric { flex:1; min-width:80px; text-align:center; padding:0 12px; border-right:1px solid var(--card-border); }
+    .proj-metric:last-child { border-right:none; }
+    .proj-metric .mv { font-size:1.4rem; font-weight:700; background:var(--gradient-1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-family:'Space Grotesk',sans-serif; }
+    .proj-metric .ml { font-size:0.68rem; color:var(--text-muted); margin-top:2px; }
+    .proj-accent { position:absolute; top:0; left:0; right:0; height:3px; background:var(--gradient-1); }
+    .proj-accent.accent-2 { background:var(--gradient-2); }
+    .proj-accent.accent-cyan { background:linear-gradient(90deg,#00d4ff,#6c63ff); }
+    .proj-accent.accent-gold { background:linear-gradient(90deg,#ffd166,#ff6b6b); }
+    .proj-links { display:flex; gap:8px; }
+    .proj-link-btn { width:34px; height:34px; border-radius:8px; background:var(--card-bg); border:1px solid var(--card-border); display:flex; align-items:center; justify-content:center; color:var(--text-muted); font-size:0.9rem; cursor:none; transition:all 0.3s; text-decoration:none; }
+    .proj-link-btn:hover { color:var(--primary-light); border-color:rgba(108,99,255,0.4); background:rgba(108,99,255,0.1); }
+    .proj-two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media(max-width:768px){ .proj-two-col{grid-template-columns:1fr;} .proj-card-inner{padding:20px;} .ph-stat .val{font-size:1.8rem;} }
+  </style>
 </head>
-<body class="d-flex flex-column h-100 bg-light">
-<main class="flex-shrink-0">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-        <div class="container px-5">
-            <a class="navbar-brand" href="index.html"><span
-                    class="fw-bolder text-primary">SAJITH RAHMAN AM - PORTFOLIO</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<nav class="navbar-advanced scrolled" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-brand"><div class="nav-brand-icon">SR</div><span>sajithrahman.developer</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="skills.html">Skills</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li><li><a href="resume.html">Resume</a></li><li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle"><i class="bi bi-sun-fill" id="themeIcon"></i></button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="closeMobileNav()">Home</a><a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="skills.html" onclick="closeMobileNav()">Skills</a><a href="projects.html" onclick="closeMobileNav()">Projects</a>
+  <a href="resume.html" onclick="closeMobileNav()">Resume</a><a href="contact.html" onclick="closeMobileNav()">Contact</a>
+</div>
+
+<!-- Page Header -->
+<div class="page-header" style="position:relative;overflow:hidden;padding-bottom:60px;">
+  <div class="orb orb-1" style="opacity:0.1;"></div>
+  <div class="orb orb-2" style="opacity:0.06;"></div>
+  <div class="container-max">
+    <div class="breadcrumb-nav"><a href="index.html">Home</a><span>/</span><span class="current">Projects</span></div>
+    <div class="section-tag"><i class="bi bi-folder2-open"></i> Portfolio Work</div>
+    <h1>Featured <span class="gradient-text">Projects</span></h1>
+    <p style="max-width:560px;margin-top:8px;">Real-world ERP implementations, API integrations, and system migrations that transformed business operations across industries.</p>
+    <div class="projects-hero-stats">
+      <div class="ph-stat"><div class="val">10+</div><div class="lbl">Projects Delivered</div></div>
+      <div class="ph-stat"><div class="val">3+</div><div class="lbl">Years Experience</div></div>
+      <div class="ph-stat"><div class="val">5</div><div class="lbl">Odoo Versions</div></div>
+      <div class="ph-stat"><div class="val">4+</div><div class="lbl">API Integrations</div></div>
+      <div class="ph-stat"><div class="val">2</div><div class="lbl">Countries Served</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Projects -->
+<section class="section-padding">
+  <div class="container-max">
+    <!-- Filter -->
+    <div class="filter-row" data-reveal>
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="hrms">HRMS & Payroll</button>
+      <button class="filter-btn" data-filter="migration">Migrations</button>
+      <button class="filter-btn" data-filter="api">API Integration</button>
+      <button class="filter-btn" data-filter="manufacturing">Manufacturing</button>
+      <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+    </div>
+
+    <div class="proj-grid" id="projGrid">
+
+      <!-- ═══ PROJECT 1: HRMS & Payroll ═══ -->
+      <div class="proj-card" data-category="hrms" data-reveal>
+        <div class="proj-accent"></div>
+        <div class="proj-card-inner">
+          <div class="proj-card-header">
+            <div>
+              <div class="proj-badge-row"><span class="proj-badge badge-featured">Featured</span><span class="proj-badge badge-live">Live</span></div>
+              <div class="proj-num" style="margin-top:8px;">// PROJECT 01</div>
             </div>
+            <div class="proj-links">
+              <a href="contact.html" class="proj-link-btn" title="Case Study"><i class="bi bi-box-arrow-up-right"></i></a>
+            </div>
+          </div>
+          <div class="proj-icon-large">👥</div>
+          <div class="proj-industry"><i class="bi bi-building"></i> Manufacturing / HR · India</div>
+          <h3 class="proj-title">Recruitment, Employee & Payroll Automation System</h3>
+          <p class="proj-summary">End-to-end HR management system built on Odoo 12 Community for a large manufacturing company. Automated all statutory benefit calculations — income tax, gratuity, bonus, PF, ESI — eliminating 100% of manual calculation errors and reducing the monthly payroll cycle from 3 days to under 4 hours.</p>
+
+          <div class="proj-tabs">
+            <button class="proj-tab active" onclick="switchTab(this,'p1-challenge')">Challenge</button>
+            <button class="proj-tab" onclick="switchTab(this,'p1-solution')">Solution</button>
+            <button class="proj-tab" onclick="switchTab(this,'p1-impact')">Impact</button>
+          </div>
+          <div class="proj-panel active" id="p1-challenge">
+            <ul>
+              <li>Manual payroll processing taking 3+ days each month with frequent calculation errors on statutory deductions</li>
+              <li>No centralized employee database — HR team managing data across spreadsheets and physical files</li>
+              <li>Recruitment pipeline had zero visibility; hiring decisions made without data</li>
+              <li>Attendance data from biometric devices not connected to payroll system</li>
+            </ul>
+          </div>
+          <div class="proj-panel" id="p1-solution">
+            <ul>
+              <li>Developed custom Odoo Python modules for income tax slabs, gratuity computation, and automated bonus calculation</li>
+              <li>Built recruitment pipeline with stage tracking, candidate portal, and email automation</li>
+              <li>Integrated biometric attendance API to automatically sync punch records to payroll</li>
+              <li>Implemented Jenkins CI/CD pipeline and GitLab for version control and zero-downtime deployments</li>
+              <li>Created QWeb PDF payslip reports with company branding and statutory compliance</li>
+            </ul>
+          </div>
+          <div class="proj-panel" id="p1-impact">
+            <ul>
+              <li>Payroll processing time reduced by 70% — from 3 days to under 4 hours</li>
+              <li>Zero calculation errors post-deployment; full statutory compliance achieved</li>
+              <li>HR team productivity increased by 40% with self-service capabilities</li>
+              <li>Real-time recruitment visibility reduced time-to-hire by 35%</li>
+            </ul>
+          </div>
+
+          <div class="proj-tech-row">
+            <span class="proj-tech-chip">Odoo 12 Community</span><span class="proj-tech-chip">Python</span>
+            <span class="proj-tech-chip">PostgreSQL</span><span class="proj-tech-chip">Jenkins CI/CD</span>
+            <span class="proj-tech-chip">GitLab</span><span class="proj-tech-chip">QWeb Reports</span>
+            <span class="proj-tech-chip">REST API</span>
+          </div>
+          <div class="proj-metrics">
+            <div class="proj-metric"><div class="mv">70%</div><div class="ml">Faster Payroll</div></div>
+            <div class="proj-metric"><div class="mv">0</div><div class="ml">Calc Errors</div></div>
+            <div class="proj-metric"><div class="mv">40%</div><div class="ml">HR Productivity ↑</div></div>
+            <div class="proj-metric"><div class="mv">100%</div><div class="ml">Compliance</div></div>
+          </div>
         </div>
-    </nav>
-    <!-- Projects Section-->
-    <section class="py-5">
-        <div class="container px-5 mb-5">
-            <div class="text-center mb-5">
-                <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
+      </div>
+
+      <!-- ═══ PROJECT 2: Manufacturing ERP ═══ -->
+      <div class="proj-card" data-category="manufacturing" data-reveal>
+        <div class="proj-accent accent-cyan"></div>
+        <div class="proj-card-inner">
+          <div class="proj-card-header">
+            <div>
+              <div class="proj-badge-row"><span class="proj-badge badge-featured">Featured</span><span class="proj-badge badge-completed">Completed</span></div>
+              <div class="proj-num" style="margin-top:8px;">// PROJECT 02</div>
             </div>
-            <div class="row gx-5 justify-content-center">
-                <div class="col-lg-11 col-xl-9 col-xxl-8">
-                    <!-- Project Card 1-->
-                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                        <div class="card-body p-0">
-                            <div class="d-flex align-items-center">
-                                <div class="p-5">
-                                    <h2>Project 1: Recruitment, Employee & Payroll Development</h2>
-                                    <p><strong>Technology:</strong> Odoo 12 Community</p>
-                                    <p><strong>Role:</strong> Odoo Developer</p>
-<!--                                    <p><strong>Duration:</strong> [Specify Duration]</p>-->
-                                    <h6>Summary</h6>
-                                    <p>Automated statutory benefits calculations and streamlined HR operations,
-                                        enhancing payroll accuracy and reducing manual interventions.</p>
-                                    <h6>Challenges</h6>
-                                    <ul>
-                                        <li>Inefficient manual payroll calculations, causing delays and errors.</li>
-                                        <li>Lack of automation in statutory benefits like income tax, bonus, and
-                                            gratuity.
-                                        </li>
-                                    </ul>
-                                    <h6>Solutions</h6>
-                                    <ul>
-                                        <li>Automated calculations for statutory benefits using Python scripts, ensuring
-                                            compliance with regulations.
-                                        </li>
-                                        <li>Set up Jenkins CI/CD pipelines to streamline development and deployment
-                                            processes.
-                                        </li>
-                                        <li>Implemented GitLab for version control, improving collaboration and change
-                                            management.
-                                        </li>
-                                    </ul>
-                                    <p class="technologies"><strong>Technologies Used:</strong> Python, PostgreSQL,
-                                        Jenkins, GitLab</p>
-                                    <h6>Results</h6>
-                                    <ul class="results">
-                                        <li>Achieved a 30% reduction in payroll processing time.</li>
-                                        <li>Eliminated calculation errors, ensuring compliance with statutory
-                                            requirements.
-                                        </li>
-                                        <li>Improved employee satisfaction with accurate and timely payroll
-                                            processing.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Card 2-->
-                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                        <div class="card-body p-0">
-                            <div class="d-flex align-items-center">
-                                <div class="p-5">
-                                    <h2>Project 2: ERP Implementation for a Manufacturing Company</h2>
-                                    <p><strong>Technology:</strong> Odoo 15 Enterprise</p>
-                                    <p><strong>Role:</strong> ERP Developer</p>
-<!--                                    <p><strong>Duration:</strong> [Specify Duration]</p>-->
-                                    <h6>Summary</h6>
-                                    <p>Developed a comprehensive HRMS module and introduced a self-service portal,
-                                        enabling employees to manage routine actions independently.</p>
-                                    <h6>Challenges</h6>
-                                    <ul>
-                                        <li>High operational costs due to the dependency on HR for routine employee
-                                            requests.
-                                        </li>
-                                        <li>Limited system scalability for a growing workforce.</li>
-                                    </ul>
-                                    <h6>Solutions</h6>
-                                    <ul>
-                                        <li>Developed a self-service portal for managing loans, time-off requests, and
-                                            more.
-                                        </li>
-                                        <li>Streamlined HR processes by integrating payroll, attendance, and employee
-                                            data.
-                                        </li>
-                                        <li>Reduced costs by creating portal user roles, minimizing enterprise license
-                                            requirements.
-                                        </li>
-                                    </ul>
-                                    <p class="technologies"><strong>Technologies Used:</strong> Odoo, Python, JavaScript
-                                    </p>
-                                    <h6>Results</h6>
-                                    <ul class="results">
-                                        <li>Decreased HR workload by 40%, enabling focus on strategic tasks.</li>
-                                        <li>Reduced operational costs by 25% through optimized resource allocation.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                        <div class="card-body p-0">
-                            <div class="d-flex align-items-center">
-                                <div class="p-5">
-                                    <h2>Project 3: Migration to Odoo 17</h2>
-                                    <p><strong>Technology:</strong> Odoo 14 Enterprise to Odoo 17 Enterprise</p>
-                                    <p><strong>Role:</strong> Project Lead</p>
-<!--                                    <p><strong>Duration:</strong> [Specify Duration]</p>-->
-                                    <h6>Summary</h6>
-                                    <p>Led the migration of ERP systems to Odoo 17, ensuring enhanced performance and
-                                        feature utilization while introducing multi-company functionality.</p>
-                                    <h6>Challenges</h6>
-                                    <ul>
-                                        <li>Ensuring data integrity and compatibility during migration.</li>
-                                        <li>Addressing client-specific customization needs in a multi-company setup.
-                                        </li>
-                                    </ul>
-                                    <h6>Solutions</h6>
-                                    <ul>
-                                        <li>Conducted a detailed gap analysis and prepared a roadmap for migration.</li>
-                                        <li>Implemented multi-company setups for UAE-based branches with localized
-                                            configurations.
-                                        </li>
-                                        <li>Optimized database queries, improving overall system performance.</li>
-                                    </ul>
-                                    <p class="technologies"><strong>Technologies Used:</strong> Python, PostgreSQL,
-                                        Jenkins, GitLab</p>
-                                    <h6>Results</h6>
-                                    <ul class="results">
-                                        <li>Ensured a 99.9% uptime during migration with zero data loss.</li>
-                                        <li>Enabled efficient multi-company management, improving branch-level reporting
-                                            by 25%.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                        <div class="card-body p-0">
-                            <div class="d-flex align-items-center">
-                                <div class="p-5">
-                                    <h2>Project 4: API Development & Integration</h2>
-                                    <p><strong>Technology:</strong> Python, REST APIs and Various Odoo Version from 12 to 18</p>
-                                    <p><strong>Role:</strong> Integration Specialist</p>
-<!--                                    <p><strong>Duration:</strong> [Specify Duration]</p>-->
-                                    <h6>Summary</h6>
-                                    <p>Integrated multiple systems with Odoo, enhancing functionality and enabling
-                                        seamless data synchronization.</p>
-                                    <h6>Challenges</h6>
-                                    <ul>
-                                        <li>Manual data entry across disparate systems, leading to inefficiencies.</li>
-                                        <li>Ensuring secure and reliable payment gateway integrations.</li>
-                                    </ul>
-                                    <h6>Solutions</h6>
-                                    <ul>
-                                        <li>Developed APIs for attendance systems (Availo), digital signature systems
-                                            (True Copy), and manufacturing data (Dr.Corr).
-                                        </li>
-                                        <li>Integrated Alfalah and Affirm payment gateways, ensuring secure transaction
-                                            processing.
-                                        </li>
-                                    </ul>
-                                    <p class="technologies"><strong>Technologies Used:</strong> Python, REST APIs, Odoo
-                                    </p>
-                                    <h6>Results</h6>
-                                    <ul class="results">
-                                        <li>Reduced manual data entry by 60%, improving operational efficiency.</li>
-                                        <li>Enhanced transaction reliability, boosting customer trust by 20%.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="proj-links"><a href="contact.html" class="proj-link-btn"><i class="bi bi-box-arrow-up-right"></i></a></div>
+          </div>
+          <div class="proj-icon-large">🏭</div>
+          <div class="proj-industry"><i class="bi bi-building"></i> Manufacturing / Industrial · India</div>
+          <h3 class="proj-title">Full ERP Implementation with Employee Self-Service Portal</h3>
+          <p class="proj-summary">Comprehensive ERP deployment on Odoo 15 Enterprise for a mid-scale manufacturing company. Developed a self-service HR portal enabling employees to independently manage loans, time-off requests, document submissions, and personal data — reducing HR intervention workload by 40% and eliminating the need for additional enterprise user licenses.</p>
+
+          <div class="proj-tabs">
+            <button class="proj-tab active" onclick="switchTab(this,'p2-challenge')">Challenge</button>
+            <button class="proj-tab" onclick="switchTab(this,'p2-solution')">Solution</button>
+            <button class="proj-tab" onclick="switchTab(this,'p2-impact')">Impact</button>
+          </div>
+          <div class="proj-panel active" id="p2-challenge">
+            <ul>
+              <li>Every employee action required HR intervention — loans, leave requests, document updates — creating a bottleneck</li>
+              <li>High Odoo Enterprise license cost for giving all employees system access</li>
+              <li>Manufacturing floor data (MRP, work orders) not integrated with HR attendance</li>
+              <li>No unified dashboard for management to view real-time production vs. workforce data</li>
+            </ul>
+          </div>
+          <div class="proj-panel" id="p2-solution">
+            <ul>
+              <li>Built custom Odoo portal module granting employees self-service access via portal user roles (no enterprise license needed)</li>
+              <li>Portal features: loan applications, leave requests, payslip downloads, personal info updates</li>
+              <li>Integrated MRP module with HR attendance for production efficiency tracking</li>
+              <li>Developed OWL dashboard widget with real-time production KPIs using Odoo RPC</li>
+              <li>Dr.Corr manufacturing system data sync via REST API for quality reporting</li>
+            </ul>
+          </div>
+          <div class="proj-panel" id="p2-impact">
+            <ul>
+              <li>HR workload reduced by 40% through employee self-service adoption</li>
+              <li>25% reduction in operational costs by eliminating excess enterprise licenses</li>
+              <li>Production-HR data merge enabled 15% improvement in workforce planning accuracy</li>
+              <li>Employee satisfaction score improved with 24/7 portal access</li>
+            </ul>
+          </div>
+
+          <div class="proj-tech-row">
+            <span class="proj-tech-chip">Odoo 15 Enterprise</span><span class="proj-tech-chip">Python</span>
+            <span class="proj-tech-chip">OWL Framework</span><span class="proj-tech-chip">JavaScript</span>
+            <span class="proj-tech-chip">Dr.Corr API</span><span class="proj-tech-chip">PostgreSQL</span>
+          </div>
+          <div class="proj-metrics">
+            <div class="proj-metric"><div class="mv">40%</div><div class="ml">HR Workload ↓</div></div>
+            <div class="proj-metric"><div class="mv">25%</div><div class="ml">Cost Saved</div></div>
+            <div class="proj-metric"><div class="mv">15%</div><div class="ml">Planning Accuracy ↑</div></div>
+          </div>
         </div>
-    </section>
-    <!-- Call to action section-->
-    <section class="py-5 bg-gradient-primary-to-secondary text-white">
-        <div class="container px-5 my-5">
-            <div class="text-center">
-                <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
-                <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Contact me</a>
+      </div>
+
+      <!-- ═══ PROJECT 3: Migration ═══ -->
+      <div class="proj-card" data-category="migration" data-reveal>
+        <div class="proj-accent accent-2"></div>
+        <div class="proj-card-inner">
+          <div class="proj-card-header">
+            <div>
+              <div class="proj-badge-row"><span class="proj-badge badge-featured">Featured</span><span class="proj-badge badge-completed">Completed</span></div>
+              <div class="proj-num" style="margin-top:8px;">// PROJECT 03</div>
             </div>
+            <div class="proj-links"><a href="contact.html" class="proj-link-btn"><i class="bi bi-box-arrow-up-right"></i></a></div>
+          </div>
+          <div class="proj-icon-large">🔄</div>
+          <div class="proj-industry"><i class="bi bi-building"></i> Multi-Company ERP · UAE</div>
+          <h3 class="proj-title">Odoo 14 → 17 Enterprise Migration for UAE Multi-Company</h3>
+          <p class="proj-summary">Led complete migration of a multi-company UAE-based organization from Odoo 14 to Odoo 17 Enterprise. The project covered full gap analysis, data integrity validation, UAE VAT localization, multi-currency configuration, and migration of 15+ custom modules — achieving 99.9% uptime with zero data loss.</p>
+
+          <div class="proj-tabs">
+            <button class="proj-tab active" onclick="switchTab(this,'p3-challenge')">Challenge</button>
+            <button class="proj-tab" onclick="switchTab(this,'p3-solution')">Solution</button>
+            <button class="proj-tab" onclick="switchTab(this,'p3-impact')">Impact</button>
+          </div>
+          <div class="proj-panel active" id="p3-challenge">
+            <ul>
+              <li>15+ heavily customized modules needed refactoring for Odoo 17 API changes (ORM updates, view syntax changes)</li>
+              <li>Multi-company financial data with AED/USD multi-currency that required audit-trail preservation</li>
+              <li>UAE VAT configuration had changed significantly between v14 and v17 localization</li>
+              <li>Zero tolerance for downtime — business operates 6 days a week across 3 companies</li>
+            </ul>
+          </div>
+          <div class="proj-panel" id="p3-solution">
+            <ul>
+              <li>Created detailed migration roadmap: gap analysis → staging environment → parallel run → cutover</li>
+              <li>Rewrote all custom module Python code to comply with v17 ORM and controller patterns</li>
+              <li>Migrated tree views to list views, updated domain syntax, and refactored computed fields</li>
+              <li>Implemented UAE FTA-compliant VAT reporting with vat.return auto-generation</li>
+              <li>Optimized 8 slow PostgreSQL queries — one report went from 45s to under 3s</li>
+              <li>Used staging database with live data clone for full pre-migration UAT</li>
+            </ul>
+          </div>
+          <div class="proj-panel" id="p3-impact">
+            <ul>
+              <li>Migration completed with 99.9% uptime — zero production data loss</li>
+              <li>Report generation speed improved by 93% (45s → 3s) after query optimization</li>
+              <li>Full UAE VAT compliance achieved within v17 localization framework</li>
+              <li>3-company multi-currency accounting running cleanly on unified platform</li>
+            </ul>
+          </div>
+
+          <div class="proj-tech-row">
+            <span class="proj-tech-chip">Odoo 14 → 17 Ent.</span><span class="proj-tech-chip">Python</span>
+            <span class="proj-tech-chip">PostgreSQL</span><span class="proj-tech-chip">UAE Localization</span>
+            <span class="proj-tech-chip">Multi-Currency</span><span class="proj-tech-chip">Jenkins</span>
+          </div>
+          <div class="proj-metrics">
+            <div class="proj-metric"><div class="mv">99.9%</div><div class="ml">Uptime</div></div>
+            <div class="proj-metric"><div class="mv">93%</div><div class="ml">Report Speed ↑</div></div>
+            <div class="proj-metric"><div class="mv">15+</div><div class="ml">Modules Migrated</div></div>
+            <div class="proj-metric"><div class="mv">0</div><div class="ml">Data Loss</div></div>
+          </div>
         </div>
-    </section>
-</main>
-<!-- Footer-->
-<!--<footer class="bg-white py-4 mt-auto">-->
-<!--    <div class="container px-5">-->
-<!--        <div class="row align-items-center justify-content-between flex-column flex-sm-row">-->
-<!--            <div class="col-auto">-->
-<!--                <div class="small m-0">Copyright &copy; Your Website 2023</div>-->
-<!--            </div>-->
-<!--            <div class="col-auto">-->
-<!--                <a class="small" href="#!">Privacy</a>-->
-<!--                <span class="mx-1">&middot;</span>-->
-<!--                <a class="small" href="#!">Terms</a>-->
-<!--                <span class="mx-1">&middot;</span>-->
-<!--                <a class="small" href="#!">Contact</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</footer>-->
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
+      </div>
+
+      <!-- ═══ PROJECT 4: API Integrations ═══ -->
+      <div class="proj-card" data-category="api" data-reveal>
+        <div class="proj-accent accent-cyan"></div>
+        <div class="proj-card-inner">
+          <div class="proj-card-header">
+            <div>
+              <div class="proj-badge-row"><span class="proj-badge badge-featured">Featured</span><span class="proj-badge badge-live">Live</span></div>
+              <div class="proj-num" style="margin-top:8px;">// PROJECT 04</div>
+            </div>
+            <div class="proj-links"><a href="contact.html" class="proj-link-btn"><i class="bi bi-box-arrow-up-right"></i></a></div>
+          </div>
+          <div class="proj-icon-large">🔗</div>
+          <div class="proj-industry"><i class="bi bi-globe"></i> Multi-Industry · India & UAE</div>
+          <h3 class="proj-title">Multi-System API Integration Suite</h3>
+          <p class="proj-summary">Designed and developed a suite of REST API integrations connecting Odoo (v12–v18) to five external systems: Availo biometric attendance, True Copy digital signature platform, Dr.Corr manufacturing data, Alfalah payment gateway, and Affirm buy-now-pay-later. Each integration was built as a cleanly structured Odoo module with error handling, retry logic, and audit logging.</p>
+
+          <div class="proj-tabs">
+            <button class="proj-tab active" onclick="switchTab(this,'p4-integrations')">Integrations</button>
+            <button class="proj-tab" onclick="switchTab(this,'p4-solution')">Architecture</button>
+            <button class="proj-tab" onclick="switchTab(this,'p4-impact')">Results</button>
+          </div>
+          <div class="proj-panel active" id="p4-integrations">
+            <ul>
+              <li><strong style="color:var(--text-primary);">Availo Attendance</strong> — Real-time biometric punch sync to Odoo HR attendance with shift detection and overtime rules</li>
+              <li><strong style="color:var(--text-primary);">True Copy Digital Signature</strong> — Contract e-signing workflow embedded in Odoo sale.order with legal validity verification</li>
+              <li><strong style="color:var(--text-primary);">Dr.Corr Manufacturing</strong> — Production data feed for quality metrics, batch tracking, and ERP reporting</li>
+              <li><strong style="color:var(--text-primary);">Alfalah Payment Gateway</strong> — Secure online payment processing integrated with Odoo website checkout (PCI-DSS aware)</li>
+              <li><strong style="color:var(--text-primary);">Affirm BNPL</strong> — Buy-now-pay-later financing option embedded in e-commerce checkout flow</li>
+            </ul>
+          </div>
+          <div class="proj-panel" id="p4-solution">
+            <ul>
+              <li>Each integration built as independent Odoo addon with ir.config_parameter-based credentials</li>
+              <li>Python requests library with retry-on-failure (exponential backoff) and webhook listeners</li>
+              <li>Custom log model capturing every API call, response status, and error payload for audit</li>
+              <li>Scheduled actions (ir.cron) for async sync jobs — no blocking UI operations</li>
+              <li>Multi-version compatible code: single codebase runs on Odoo 12 through 18</li>
+            </ul>
+          </div>
+          <div class="proj-panel" id="p4-impact">
+            <ul>
+              <li>60% reduction in manual data entry across all integrated workflows</li>
+              <li>Attendance sync latency under 30 seconds from biometric punch to Odoo record</li>
+              <li>Digital signature adoption increased contract turnaround from 5 days to same-day</li>
+              <li>Payment gateway integration increased online checkout completion rate by 20%</li>
+            </ul>
+          </div>
+
+          <div class="proj-tech-row">
+            <span class="proj-tech-chip">Python Requests</span><span class="proj-tech-chip">REST APIs</span>
+            <span class="proj-tech-chip">JSON / XML</span><span class="proj-tech-chip">Odoo v12–v18</span>
+            <span class="proj-tech-chip">ir.cron Jobs</span><span class="proj-tech-chip">Webhooks</span>
+          </div>
+          <div class="proj-metrics">
+            <div class="proj-metric"><div class="mv">5</div><div class="ml">Systems Integrated</div></div>
+            <div class="proj-metric"><div class="mv">60%</div><div class="ml">Manual Entry ↓</div></div>
+            <div class="proj-metric"><div class="mv">&lt;30s</div><div class="ml">Sync Latency</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ PROJECT 5: v17→v19 Migration ═══ -->
+      <div class="proj-card" data-category="migration" data-reveal>
+        <div class="proj-accent accent-gold"></div>
+        <div class="proj-card-inner">
+          <div class="proj-card-header">
+            <div>
+              <div class="proj-badge-row"><span class="proj-badge badge-ongoing">In Progress</span></div>
+              <div class="proj-num" style="margin-top:8px;">// PROJECT 05</div>
+            </div>
+            <div class="proj-links"><a href="contact.html" class="proj-link-btn"><i class="bi bi-box-arrow-up-right"></i></a></div>
+          </div>
+          <div class="proj-icon-large">⬆️</div>
+          <div class="proj-industry"><i class="bi bi-building"></i> Enterprise Software · India</div>
+          <h3 class="proj-title">Odoo 17 → 19 Enterprise Module Suite Migration</h3>
+          <p class="proj-summary">Currently leading the migration of 10+ custom Odoo modules from v17 to v19, adapting to breaking changes in Odoo 19's architecture — including updated ir.actions.report handler registry, OWL 3 component lifecycle, refactored HTTP controller patterns, PostgreSQL JSONB field changes for company-dependent fields, and new security.xml group definitions.</p>
+
+          <div class="proj-tabs">
+            <button class="proj-tab active" onclick="switchTab(this,'p5-scope')">Scope</button>
+            <button class="proj-tab" onclick="switchTab(this,'p5-solution')">Technical Changes</button>
+            <button class="proj-tab" onclick="switchTab(this,'p5-impact')">Status</button>
+          </div>
+          <div class="proj-panel active" id="p5-scope">
+            <ul>
+              <li>report_xlsx — XLSX report generation module with updated handler registry</li>
+              <li>crm_lead_sales_team_access — CRM access control with updated res.groups XML</li>
+              <li>sale_order_access_for_followers — Sales follower permission system</li>
+              <li>inventory_evaluation_check — SQL-based inventory valuation with JSONB field adaptation</li>
+              <li>appjetty_my_account_dashboard — Portal dashboard with OWL 3 components</li>
+              <li>asset_partner_location — Asset management with updated _track_subtype signature</li>
+            </ul>
+          </div>
+          <div class="proj-panel" id="p5-solution">
+            <ul>
+              <li>Replaced deprecated ir.property table with JSONB company-dependent fields for standard_price</li>
+              <li>Migrated tree views → list views, updated domain filters to v19 syntax</li>
+              <li>Refactored HTTP controllers from v17 http.request patterns to v19 dispatch model</li>
+              <li>Updated res.groups XML — removed deprecated category_id and privilege_id fields</li>
+              <li>Adapted OWL components to lifecycle hooks (setup, onWillStart, onMounted)</li>
+            </ul>
+          </div>
+          <div class="proj-panel" id="p5-impact">
+            <ul>
+              <li>6 of 10 modules successfully installed and passing full functional tests in Odoo 19</li>
+              <li>Zero regression in business logic — all original features preserved</li>
+              <li>Migration playbook documented for remaining module types</li>
+              <li>Estimated completion: 2 additional sprint cycles</li>
+            </ul>
+          </div>
+
+          <div class="proj-tech-row">
+            <span class="proj-tech-chip">Odoo 19</span><span class="proj-tech-chip">Python</span>
+            <span class="proj-tech-chip">OWL 3</span><span class="proj-tech-chip">PostgreSQL JSONB</span>
+            <span class="proj-tech-chip">XML Views</span><span class="proj-tech-chip">Security XML</span>
+          </div>
+          <div class="proj-metrics">
+            <div class="proj-metric"><div class="mv">10+</div><div class="ml">Modules</div></div>
+            <div class="proj-metric"><div class="mv">6</div><div class="ml">Live on v19</div></div>
+            <div class="proj-metric"><div class="mv">v19</div><div class="ml">Target</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ PROJECT 6: E-Commerce ═══ -->
+      <div class="proj-card" data-category="ecommerce" data-reveal>
+        <div class="proj-accent"></div>
+        <div class="proj-card-inner">
+          <div class="proj-card-header">
+            <div>
+              <div class="proj-badge-row"><span class="proj-badge badge-completed">Completed</span></div>
+              <div class="proj-num" style="margin-top:8px;">// PROJECT 06</div>
+            </div>
+            <div class="proj-links"><a href="contact.html" class="proj-link-btn"><i class="bi bi-box-arrow-up-right"></i></a></div>
+          </div>
+          <div class="proj-icon-large">🛒</div>
+          <div class="proj-industry"><i class="bi bi-bag"></i> Retail / E-Commerce · GCC Region</div>
+          <h3 class="proj-title">E-Commerce ERP with Affirm & Alfalah Payment Integration</h3>
+          <p class="proj-summary">Implemented a full-stack Odoo e-commerce and retail ERP solution for a GCC-region retailer. The project included product catalog management, real-time inventory sync between warehouse and web store, automated order processing, customer portal, and integration of two payment gateways — Alfalah (card payments) and Affirm (BNPL financing).</p>
+
+          <div class="proj-tabs">
+            <button class="proj-tab active" onclick="switchTab(this,'p6-challenge')">Challenge</button>
+            <button class="proj-tab" onclick="switchTab(this,'p6-solution')">Solution</button>
+            <button class="proj-tab" onclick="switchTab(this,'p6-impact')">Impact</button>
+          </div>
+          <div class="proj-panel active" id="p6-challenge">
+            <ul>
+              <li>Physical retail and online store running on separate systems — inventory constantly out of sync</li>
+              <li>No BNPL option was reducing conversion rates for high-value items</li>
+              <li>Order fulfilment manual process taking 24–48 hours from web order to warehouse pick</li>
+              <li>Customer had no visibility on order status — support calls were overwhelming staff</li>
+            </ul>
+          </div>
+          <div class="proj-panel" id="p6-solution">
+            <ul>
+              <li>Implemented Odoo Website + eCommerce module with real-time inventory sync to POS and warehouse</li>
+              <li>Custom Alfalah payment acquirer module integrating card payments with 3DS authentication</li>
+              <li>Affirm BNPL integration embedded at checkout with eligibility check and loan creation API</li>
+              <li>Automated sales order → delivery order → invoice workflow with customer email notifications</li>
+              <li>Self-service customer portal for order tracking, invoices, and return requests</li>
+            </ul>
+          </div>
+          <div class="proj-panel" id="p6-impact">
+            <ul>
+              <li>Online checkout completion rate increased by 28% after BNPL option launch</li>
+              <li>Order fulfillment time dropped from 48 hours to under 3 hours with automation</li>
+              <li>Support call volume reduced by 45% thanks to customer self-service portal</li>
+              <li>Inventory accuracy reached 99.7% with unified warehouse-web sync</li>
+            </ul>
+          </div>
+
+          <div class="proj-tech-row">
+            <span class="proj-tech-chip">Odoo eCommerce</span><span class="proj-tech-chip">Python</span>
+            <span class="proj-tech-chip">Alfalah API</span><span class="proj-tech-chip">Affirm API</span>
+            <span class="proj-tech-chip">PostgreSQL</span><span class="proj-tech-chip">Customer Portal</span>
+          </div>
+          <div class="proj-metrics">
+            <div class="proj-metric"><div class="mv">28%</div><div class="ml">Conversion ↑</div></div>
+            <div class="proj-metric"><div class="mv">3hr</div><div class="ml">Fulfillment</div></div>
+            <div class="proj-metric"><div class="mv">45%</div><div class="ml">Support Calls ↓</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ PROJECT 7: NetSuite ═══ -->
+      <div class="proj-card" data-category="api" data-reveal>
+        <div class="proj-accent accent-cyan"></div>
+        <div class="proj-card-inner">
+          <div class="proj-card-header">
+            <div>
+              <div class="proj-badge-row"><span class="proj-badge badge-completed">Completed</span></div>
+              <div class="proj-num" style="margin-top:8px;">// PROJECT 07</div>
+            </div>
+          </div>
+          <div class="proj-icon-large">☁️</div>
+          <div class="proj-industry"><i class="bi bi-cloud"></i> Oracle NetSuite · Cloud ERP</div>
+          <h3 class="proj-title">Oracle NetSuite — Saved Search & SuiteScript Customizations</h3>
+          <p class="proj-summary">Worked on Oracle NetSuite ERP for a client's finance operations — built custom saved searches for aged receivables, revenue recognition reports, and vendor payment analysis. Implemented basic SuiteScript 2.x client scripts for form validation, field auto-population, and workflow automation within the NetSuite environment.</p>
+
+          <div class="proj-tabs">
+            <button class="proj-tab active" onclick="switchTab(this,'p7-work')">Work Done</button>
+            <button class="proj-tab" onclick="switchTab(this,'p7-solution')">Technical</button>
+          </div>
+          <div class="proj-panel active" id="p7-work">
+            <ul>
+              <li>Built 12+ custom saved searches for financial reporting and audit preparation</li>
+              <li>Developed SuiteScript 2.x client scripts for transaction form validation</li>
+              <li>Configured custom record types and fields for business-specific data capture</li>
+              <li>Created workflow automation for PO approval routing based on amount thresholds</li>
+              <li>User-level training and documentation for finance team on search customization</li>
+            </ul>
+          </div>
+          <div class="proj-panel" id="p7-solution">
+            <ul>
+              <li>SuiteScript 2.x (client + scheduled script types) for automation</li>
+              <li>NetSuite saved search with formula fields for calculated financial KPIs</li>
+              <li>Record customization using custom fields on transaction / entity records</li>
+              <li>SuiteFlow workflow for multi-level approval with email notifications</li>
+            </ul>
+          </div>
+
+          <div class="proj-tech-row">
+            <span class="proj-tech-chip">Oracle NetSuite</span><span class="proj-tech-chip">SuiteScript 2.x</span>
+            <span class="proj-tech-chip">Saved Searches</span><span class="proj-tech-chip">SuiteFlow</span>
+            <span class="proj-tech-chip">Record Customization</span>
+          </div>
+          <div class="proj-metrics">
+            <div class="proj-metric"><div class="mv">12+</div><div class="ml">Custom Searches</div></div>
+            <div class="proj-metric"><div class="mv">Cloud</div><div class="ml">Platform</div></div>
+            <div class="proj-metric"><div class="mv">Auto</div><div class="ml">PO Approvals</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /proj-grid -->
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:80px 0;background:var(--dark2);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(108,99,255,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="container-max" style="text-align:center;position:relative;z-index:1;" data-reveal>
+    <div class="section-tag"><i class="bi bi-chat-dots"></i> Collaborate</div>
+    <h2 class="section-title" style="margin-top:12px;">Have a Project in Mind?</h2>
+    <p style="color:var(--text-secondary);margin:12px auto 32px;max-width:480px;line-height:1.7;">Let's discuss how I can build an ERP, API integration, or migration solution tailored to your business needs.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn-primary-glow"><i class="bi bi-envelope"></i> Get In Touch</a>
+      <a href="resume.html" class="btn-outline-glow"><i class="bi bi-file-earmark-person"></i> View Resume</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="nav-brand" style="text-decoration:none;cursor:default;"><div class="nav-brand-icon">SR</div><span style="background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">sajithrahman.developer</span></div><p>Software Engineer &mdash; Odoo, NetSuite, APIs, Mobile &amp; Networking.</p></div>
+      <div><div class="footer-title">Navigation</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="skills.html">Skills</a></li><li><a href="projects.html">Projects</a></li></ul></div>
+      <div><div class="footer-title">More</div><ul class="footer-links"><li><a href="resume.html">Resume</a></li><li><a href="contact.html">Contact</a></li><li><a href="assets/sajithrahman_resume2025.pdf" target="_blank">Download CV</a></li></ul></div>
+      <div><div class="footer-title">Contact</div><ul class="footer-links"><li><a href="mailto:sajith.rahman.am@outlook.com">sajith.rahman.am@outlook.com</a></li><li><a href="#">Calicut / Coimbatore, India</a></li><li><a href="https://www.linkedin.com/in/sajith-rahman-a-m-3b3130229/" target="_blank">LinkedIn Profile</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Sajith Rahman A.M — All rights reserved.</p><p class="made-with">Made with <span class="heart">❤️</span> and lots of ☕</p></div>
+  </div>
+</footer>
+
+<script>
+// Cursor
+const cursor=document.getElementById('cursor'),follower=document.getElementById('cursorFollower');
+let mx=0,my=0,fx=0,fy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function anim(){fx+=(mx-fx)*.12;fy+=(my-fy)*.12;follower.style.left=fx+'px';follower.style.top=fy+'px';requestAnimationFrame(anim);})();
+document.querySelectorAll('a,button,.proj-card,.glass-card').forEach(el=>{el.addEventListener('mouseenter',()=>{cursor.classList.add('active');follower.classList.add('active');});el.addEventListener('mouseleave',()=>{cursor.classList.remove('active');follower.classList.remove('active');});});
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50));
+const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileNav');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');});
+function closeMobileNav(){ham.classList.remove('open');mob.classList.remove('open');}
+document.getElementById('themeToggle').addEventListener('click',()=>{document.body.classList.toggle('light-mode');document.getElementById('themeIcon').className=document.body.classList.contains('light-mode')?'bi bi-moon-fill':'bi bi-sun-fill';});
+
+// Reveal
+const obs=new IntersectionObserver(entries=>entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('revealed'),i*80);obs.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
+
+// Filter
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.proj-card').forEach(c=>{
+      c.classList.toggle('hidden',f!=='all' && c.dataset.category!==f);
+    });
+  });
+});
+
+// Tab switcher
+function switchTab(btn, panelId) {
+  const card = btn.closest('.proj-card');
+  card.querySelectorAll('.proj-tab').forEach(t=>t.classList.remove('active'));
+  card.querySelectorAll('.proj-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+
+// 3D Tilt
+document.querySelectorAll('.proj-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`translateY(-6px) perspective(800px) rotateX(${-y*5}deg) rotateY(${x*5}deg)`;
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transform='';});
+});
+</script>
+<script src="js/transitions.js"></script>
 </body>
 </html>

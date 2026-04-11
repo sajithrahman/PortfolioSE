@@ -1,305 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="About Sajith Rahman A.M - Software Engineer, Odoo & NetSuite Developer. Learn about my background, skills, mobile dev, networking, and professional journey." />
+  <meta name="description"
+    content="About Sajith Rahman A.M - Software Engineer, Odoo & NetSuite Developer. Learn about my background, skills, mobile dev, networking, and professional journey." />
   <title>About — Sajith Rahman A.M</title>
   <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="css/portfolio.css" rel="stylesheet" />
 </head>
+
 <body>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-follower" id="cursorFollower"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
 
-<!-- Navigation -->
-<nav class="navbar-advanced scrolled" id="navbar">
-  <div class="navbar-inner">
-    <a href="index.html" class="nav-brand">
-      <div class="nav-brand-icon">SR</div>
-      <span>sajithrahman.developer</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="resume.html">Resume</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle"><i class="bi bi-sun-fill" id="themeIcon"></i></button>
-      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  <!-- Navigation -->
+  <nav class="navbar-advanced scrolled" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-brand-icon">SR</div>
+        <span>sajithrahman.developer</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle"><i class="bi bi-sun-fill" id="themeIcon"></i></button>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" onclick="closeMobileNav()">Home</a>
+    <a href="about.html" onclick="closeMobileNav()">About</a>
+    <a href="skills.html" onclick="closeMobileNav()">Skills</a>
+    <a href="projects.html" onclick="closeMobileNav()">Projects</a>
+    <a href="resume.html" onclick="closeMobileNav()">Resume</a>
+    <a href="contact.html" onclick="closeMobileNav()">Contact</a>
+  </div>
+
+  <!-- Page Header -->
+  <div class="page-header" style="position:relative;overflow:hidden;">
+    <div class="orb orb-1" style="opacity:0.12;"></div>
+    <div class="container-max">
+      <div class="breadcrumb-nav">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span class="current">About</span>
+      </div>
+      <div class="section-tag"><i class="bi bi-person-circle"></i> The Story</div>
+      <h1>About <span class="gradient-text">Sajith Rahman</span></h1>
+      <p>A passionate Software Engineer from India, dedicated to building technology that matters.</p>
     </div>
   </div>
-</nav>
 
-<div class="mobile-nav" id="mobileNav">
-  <a href="index.html" onclick="closeMobileNav()">Home</a>
-  <a href="about.html" onclick="closeMobileNav()">About</a>
-  <a href="skills.html" onclick="closeMobileNav()">Skills</a>
-  <a href="projects.html" onclick="closeMobileNav()">Projects</a>
-  <a href="resume.html" onclick="closeMobileNav()">Resume</a>
-  <a href="contact.html" onclick="closeMobileNav()">Contact</a>
-</div>
-
-<!-- Page Header -->
-<div class="page-header" style="position:relative;overflow:hidden;">
-  <div class="orb orb-1" style="opacity:0.12;"></div>
-  <div class="container-max">
-    <div class="breadcrumb-nav">
-      <a href="index.html">Home</a>
-      <span>/</span>
-      <span class="current">About</span>
-    </div>
-    <div class="section-tag"><i class="bi bi-person-circle"></i> The Story</div>
-    <h1>About <span class="gradient-text">Sajith Rahman</span></h1>
-    <p>A passionate Software Engineer from India, dedicated to building technology that matters.</p>
-  </div>
-</div>
-
-<!-- About Main -->
-<section class="section-padding">
-  <div class="container-max">
-    <div class="about-grid" data-reveal>
-      <!-- Text -->
-      <div class="about-text">
-        <div class="section-tag"><i class="bi bi-chat-left-quote"></i> My Story</div>
-        <h2 class="section-title" style="font-size:2rem;">Crafting ERP Excellence<br/><span class="gradient-text">One Module at a Time</span></h2>
-        <div class="section-divider"></div>
-        <p>Hi, I'm <strong>Sajith Rahman A.M</strong> — a passionate Software Engineer & Tech Specialist based in India with 3+ years of professional experience transforming how businesses run through smart technology.</p>
-        <p>My journey began with an MS in Computer Science from Government Arts College, Coimbatore. Since then I've worked across HRMS, payroll, manufacturing ERP, CRM, and multi-company environments — and expanded my horizon into Oracle NetSuite, REST APIs, mobile app development, and networking.</p>
-        <p>My core specialty is the <strong>Odoo ERP ecosystem</strong> (v12 → v19) for both Community &amp; Enterprise, plus hands-on knowledge of <strong>Oracle NetSuite</strong> for cloud ERP use cases. I'm proficient in Python, JavaScript/OWL, REST API design, React Native for mobile apps, and Linux server/networking basics.</p>
-        <p>When I'm not deep in code, I explore emerging technologies, contribute to technical discussions, and continuously upgrade my skill set to stay ahead of the curve.</p>
-        <div class="about-info-grid">
-          <div class="info-item">
-            <div class="info-label">// current role</div>
-            <div class="info-value">Software Engineer / Odoo Dev</div>
+  <!-- About Main -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div class="about-grid" data-reveal>
+        <!-- Text -->
+        <div class="about-text">
+          <div class="section-tag"><i class="bi bi-chat-left-quote"></i> My Story</div>
+          <h2 class="section-title" style="font-size:2rem;">Crafting ERP Excellence<br /><span class="gradient-text">One
+              Module at a Time</span></h2>
+          <div class="section-divider"></div>
+          <p>Hi, I'm <strong>Sajith Rahman A.M</strong> — a passionate Software Engineer & Tech Specialist based in
+            India with 4+ years of professional experience transforming how businesses run through smart technology.</p>
+          <p>My journey began with an MS in Computer Science from Government Arts College, Coimbatore. Since then I've
+            worked across HRMS, payroll, manufacturing ERP, CRM, and multi-company environments — and expanded my
+            horizon into Oracle NetSuite, REST APIs, mobile app development, and networking.</p>
+          <p>My core specialty is the <strong>Odoo ERP ecosystem</strong> (v12 → v19) for both Community &amp;
+            Enterprise, plus hands-on knowledge of <strong>Oracle NetSuite</strong> for cloud ERP use cases. I'm
+            proficient in Python, JavaScript/OWL, REST API design, React Native for mobile apps, and Linux
+            server/networking basics.</p>
+          <p>When I'm not deep in code, I explore emerging technologies, contribute to technical discussions, and
+            continuously upgrade my skill set to stay ahead of the curve.</p>
+          <div class="about-info-grid">
+            <div class="info-item">
+              <div class="info-label">// current role</div>
+              <div class="info-value">Software Engineer / Odoo Dev</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">// company</div>
+              <div class="info-value">Tecfuge Business Solutions</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">// location</div>
+              <div class="info-value">Calicut / Coimbatore, India</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">// availability</div>
+              <div class="info-value" style="color:#4ade80;">✓ Open to Opportunities</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">// email</div>
+              <div class="info-value"><a href="mailto:sajith.rahman.am@outlook.com"
+                  style="color:var(--primary-light);text-decoration:none;">sajith.rahman.am@outlook.com</a></div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">// linkedin</div>
+              <div class="info-value"><a href="https://www.linkedin.com/in/sajith-rahman-a-m-3b3130229/" target="_blank"
+                  style="color:var(--primary-light);text-decoration:none;">@sajith-rahman-a-m</a></div>
+            </div>
           </div>
-          <div class="info-item">
-            <div class="info-label">// company</div>
-            <div class="info-value">Tecfuge Business Solutions</div>
-          </div>
-          <div class="info-item">
-            <div class="info-label">// location</div>
-            <div class="info-value">Calicut / Coimbatore, India</div>
-          </div>
-          <div class="info-item">
-            <div class="info-label">// availability</div>
-            <div class="info-value" style="color:#4ade80;">✓ Open to Opportunities</div>
-          </div>
-          <div class="info-item">
-            <div class="info-label">// email</div>
-            <div class="info-value"><a href="mailto:sajith.rahman.am@outlook.com" style="color:var(--primary-light);text-decoration:none;">sajith.rahman.am@outlook.com</a></div>
-          </div>
-          <div class="info-item">
-            <div class="info-label">// linkedin</div>
-            <div class="info-value"><a href="https://www.linkedin.com/in/sajith-rahman-a-m-3b3130229/" target="_blank" style="color:var(--primary-light);text-decoration:none;">@sajith-rahman-a-m</a></div>
+          <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
+            <a href="assets/sajithrahman_resume2025.pdf" target="_blank" class="btn-primary-glow"><i
+                class="bi bi-download"></i> Download CV</a>
+            <a href="contact.html" class="btn-outline-glow"><i class="bi bi-envelope"></i> Contact Me</a>
           </div>
         </div>
-        <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;">
-          <a href="assets/sajithrahman_resume2025.pdf" target="_blank" class="btn-primary-glow"><i class="bi bi-download"></i> Download CV</a>
-          <a href="contact.html" class="btn-outline-glow"><i class="bi bi-envelope"></i> Contact Me</a>
-        </div>
-      </div>
-      <!-- Visual -->
-      <div class="about-visual" data-reveal="right">
-        <!-- 3D Tilt Profile -->
-        <div class="glass-card" style="padding:32px;text-align:center;margin-bottom:24px;" id="profileCard">
-          <div style="width:160px;height:160px;border-radius:50%;margin:0 auto 20px;overflow:hidden;border:3px solid rgba(108,99,255,0.4);box-shadow:0 0 40px rgba(108,99,255,0.3);">
-            <img src="assets/profile_new.png" alt="Sajith Rahman" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+        <!-- Visual -->
+        <div class="about-visual" data-reveal="right">
+          <!-- 3D Tilt Profile -->
+          <div class="glass-card" style="padding:32px;text-align:center;margin-bottom:24px;" id="profileCard">
+            <div
+              style="width:160px;height:160px;border-radius:50%;margin:0 auto 20px;overflow:hidden;border:3px solid rgba(108,99,255,0.4);box-shadow:0 0 40px rgba(108,99,255,0.3);">
+              <img src="assets/profile_new.png" alt="Sajith Rahman"
+                style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+            </div>
+            <h3
+              style="font-size:1.2rem;font-weight:700;color:var(--text-primary);font-family:'Space Grotesk',sans-serif;margin-bottom:4px;">
+              Sajith Rahman A.M</h3>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:16px;">Software Engineer & Odoo
+              Developer</p>
+            <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+              <span class="chip"><i class="bi bi-geo-alt-fill"></i> India</span>
+              <span class="chip"><i class="bi bi-check-circle-fill" style="color:#4ade80;"></i> Available</span>
+            </div>
           </div>
-          <h3 style="font-size:1.2rem;font-weight:700;color:var(--text-primary);font-family:'Space Grotesk',sans-serif;margin-bottom:4px;">Sajith Rahman A.M</h3>
-          <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:16px;">Software Engineer & Odoo Developer</p>
-          <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
-            <span class="chip"><i class="bi bi-geo-alt-fill"></i> India</span>
-            <span class="chip"><i class="bi bi-check-circle-fill" style="color:#4ade80;"></i> Available</span>
+          <!-- Stats -->
+          <div class="grid-2" style="gap:16px;">
+            <div class="glass-card" style="padding:24px;text-align:center;">
+              <div
+                style="font-size:2rem;font-weight:700;background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Space Grotesk',sans-serif;"
+                id="expCounter">0</div>
+              <div style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;">Years Experience</div>
+            </div>
+            <div class="glass-card" style="padding:24px;text-align:center;">
+              <div
+                style="font-size:2rem;font-weight:700;background:var(--gradient-2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Space Grotesk',sans-serif;"
+                id="projCounter">0</div>
+              <div style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;">Projects Done</div>
+            </div>
+            <div class="glass-card" style="padding:24px;text-align:center;">
+              <div
+                style="font-size:2rem;font-weight:700;background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Space Grotesk',sans-serif;"
+                id="verCounter">0</div>
+              <div style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;">Odoo Versions</div>
+            </div>
+            <div class="glass-card" style="padding:24px;text-align:center;">
+              <div
+                style="font-size:2rem;font-weight:700;background:var(--gradient-2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Space Grotesk',sans-serif;"
+                id="clientCounter">0</div>
+              <div style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;">Happy Clients</div>
+            </div>
           </div>
-        </div>
-        <!-- Stats -->
-        <div class="grid-2" style="gap:16px;">
-          <div class="glass-card" style="padding:24px;text-align:center;">
-            <div style="font-size:2rem;font-weight:700;background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Space Grotesk',sans-serif;" id="expCounter">0</div>
-            <div style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;">Years Experience</div>
-          </div>
-          <div class="glass-card" style="padding:24px;text-align:center;">
-            <div style="font-size:2rem;font-weight:700;background:var(--gradient-2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Space Grotesk',sans-serif;" id="projCounter">0</div>
-            <div style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;">Projects Done</div>
-          </div>
-          <div class="glass-card" style="padding:24px;text-align:center;">
-            <div style="font-size:2rem;font-weight:700;background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Space Grotesk',sans-serif;" id="verCounter">0</div>
-            <div style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;">Odoo Versions</div>
-          </div>
-          <div class="glass-card" style="padding:24px;text-align:center;">
-            <div style="font-size:2rem;font-weight:700;background:var(--gradient-2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Space Grotesk',sans-serif;" id="clientCounter">0</div>
-            <div style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;">Happy Clients</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Education -->
-<section class="section-padding bg-dark-alt">
-  <div class="container-max">
-    <div style="margin-bottom:48px;" data-reveal>
-      <div class="section-tag"><i class="bi bi-mortarboard"></i> Education</div>
-      <h2 class="section-title">Academic <span class="gradient-text">Foundation</span></h2>
-    </div>
-    <div class="edu-grid" data-reveal>
-      <div class="edu-card">
-        <div style="font-size:2rem;margin-bottom:16px;">🎓</div>
-        <div class="edu-period">2020 – 2022</div>
-        <div class="edu-degree">Master of Science (MS)</div>
-        <div style="font-size:0.82rem;color:var(--primary-light);margin-bottom:8px;font-weight:500;">Computer Science</div>
-        <div class="edu-school">Government Arts College, Coimbatore</div>
-        <div class="edu-location"><i class="bi bi-geo-alt"></i> Coimbatore, Tamil Nadu, India</div>
-        <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
-          <span class="chip" style="font-size:0.72rem;">Algorithms</span>
-          <span class="chip" style="font-size:0.72rem;">Data Structures</span>
-          <span class="chip" style="font-size:0.72rem;">DBMS</span>
-          <span class="chip" style="font-size:0.72rem;">Networking</span>
-        </div>
-      </div>
-      <div class="edu-card">
-        <div style="font-size:2rem;margin-bottom:16px;">📚</div>
-        <div class="edu-period">2017 – 2020</div>
-        <div class="edu-degree">Bachelor of Computer Applications</div>
-        <div style="font-size:0.82rem;color:var(--primary-light);margin-bottom:8px;font-weight:500;">Computer Applications</div>
-        <div class="edu-school">VLB Janakiammal College of Arts and Science</div>
-        <div class="edu-location"><i class="bi bi-geo-alt"></i> Coimbatore, Tamil Nadu, India</div>
-        <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
-          <span class="chip" style="font-size:0.72rem;">Programming</span>
-          <span class="chip" style="font-size:0.72rem;">Web Dev</span>
-          <span class="chip" style="font-size:0.72rem;">Networking</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Interests -->
-<section class="section-padding">
-  <div class="container-max">
-    <div style="text-align:center;margin-bottom:48px;" data-reveal>
-      <div class="section-tag"><i class="bi bi-heart"></i> Beyond Code</div>
-      <h2 class="section-title">What <span class="gradient-text">Drives Me</span></h2>
-    </div>
-    <div class="grid-3" data-reveal>
-      <div class="glass-card" style="padding:28px;text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:16px;">🔬</div>
-        <h3 style="font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">Tech Exploration</h3>
-        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.6;">Constantly experimenting with new ERP platforms, mobile frameworks, and networking tools to stay ahead in the rapidly evolving tech landscape.</p>
+  <!-- Education -->
+  <section class="section-padding bg-dark-alt">
+    <div class="container-max">
+      <div style="margin-bottom:48px;" data-reveal>
+        <div class="section-tag"><i class="bi bi-mortarboard"></i> Education</div>
+        <h2 class="section-title">Academic <span class="gradient-text">Foundation</span></h2>
       </div>
-      <div class="glass-card" style="padding:28px;text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:16px;">🧩</div>
-        <h3 style="font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">Problem Solving</h3>
-        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.6;">I thrive on turning complex business challenges into elegant, automated solutions that save time and reduce errors.</p>
-      </div>
-      <div class="glass-card" style="padding:28px;text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:16px;">📖</div>
-        <h3 style="font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">Continuous Learning</h3>
-        <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.6;">Dedicated to lifelong learning — whether through documentation, courses, or hands-on exploration of new ERP modules and features.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-brand" style="text-decoration:none;cursor:default;">
-          <div class="nav-brand-icon">SR</div>
-          <span style="background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">sajithrahman.developer</span>
+      <div class="edu-grid" data-reveal>
+        <div class="edu-card">
+          <div style="font-size:2rem;margin-bottom:16px;">🎓</div>
+          <div class="edu-period">2020 – 2022</div>
+          <div class="edu-degree">Master of Science (MS)</div>
+          <div style="font-size:0.82rem;color:var(--primary-light);margin-bottom:8px;font-weight:500;">Computer Science
+          </div>
+          <div class="edu-school">Government Arts College, Coimbatore</div>
+          <div class="edu-location"><i class="bi bi-geo-alt"></i> Coimbatore, Tamil Nadu, India</div>
+          <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="chip" style="font-size:0.72rem;">Algorithms</span>
+            <span class="chip" style="font-size:0.72rem;">Data Structures</span>
+            <span class="chip" style="font-size:0.72rem;">DBMS</span>
+            <span class="chip" style="font-size:0.72rem;">Networking</span>
+          </div>
         </div>
-        <p>Software Engineer — Odoo, NetSuite, APIs, Mobile &amp; Networking specialist.</p>
+        <div class="edu-card">
+          <div style="font-size:2rem;margin-bottom:16px;">📚</div>
+          <div class="edu-period">2017 – 2020</div>
+          <div class="edu-degree">Bachelor of Computer Applications</div>
+          <div style="font-size:0.82rem;color:var(--primary-light);margin-bottom:8px;font-weight:500;">Computer
+            Applications</div>
+          <div class="edu-school">VLB Janakiammal College of Arts and Science</div>
+          <div class="edu-location"><i class="bi bi-geo-alt"></i> Coimbatore, Tamil Nadu, India</div>
+          <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="chip" style="font-size:0.72rem;">Programming</span>
+            <span class="chip" style="font-size:0.72rem;">Web Dev</span>
+            <span class="chip" style="font-size:0.72rem;">Networking</span>
+          </div>
+        </div>
       </div>
-      <div><div class="footer-title">Navigation</div><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="skills.html">Skills</a></li><li><a href="projects.html">Projects</a></li></ul></div>
-      <div><div class="footer-title">More</div><ul class="footer-links"><li><a href="resume.html">Resume</a></li><li><a href="contact.html">Contact</a></li><li><a href="assets/sajithrahman_resume2025.pdf" target="_blank">Download CV</a></li></ul></div>
-      <div><div class="footer-title">Contact</div><ul class="footer-links"><li><a href="mailto:sajith.rahman.am@outlook.com">sajith.rahman.am@outlook.com</a></li><li><a href="#">Calicut / Coimbatore, India</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 Sajith Rahman A.M — All rights reserved.</p>
-      <p class="made-with">Made with <span class="heart">❤️</span> and lots of ☕</p>
+  </section>
+
+  <!-- Interests -->
+  <section class="section-padding">
+    <div class="container-max">
+      <div style="text-align:center;margin-bottom:48px;" data-reveal>
+        <div class="section-tag"><i class="bi bi-heart"></i> Beyond Code</div>
+        <h2 class="section-title">What <span class="gradient-text">Drives Me</span></h2>
+      </div>
+      <div class="grid-3" data-reveal>
+        <div class="glass-card" style="padding:28px;text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:16px;">🔬</div>
+          <h3
+            style="font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">
+            Tech Exploration</h3>
+          <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.6;">Constantly experimenting with new
+            ERP platforms, mobile frameworks, and networking tools to stay ahead in the rapidly evolving tech landscape.
+          </p>
+        </div>
+        <div class="glass-card" style="padding:28px;text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:16px;">🧩</div>
+          <h3
+            style="font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">
+            Problem Solving</h3>
+          <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.6;">I thrive on turning complex business
+            challenges into elegant, automated solutions that save time and reduce errors.</p>
+        </div>
+        <div class="glass-card" style="padding:28px;text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:16px;">📖</div>
+          <h3
+            style="font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">
+            Continuous Learning</h3>
+          <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.6;">Dedicated to lifelong learning —
+            whether through documentation, courses, or hands-on exploration of new ERP modules and features.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<script>
-// Cursor
-const cursor = document.getElementById('cursor'), follower = document.getElementById('cursorFollower');
-let mx=0,my=0,fx=0,fy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
-(function anim(){fx+=(mx-fx)*.12;fy+=(my-fy)*.12;follower.style.left=fx+'px';follower.style.top=fy+'px';requestAnimationFrame(anim);})();
-document.querySelectorAll('a,button,.glass-card,.tech-item').forEach(el=>{el.addEventListener('mouseenter',()=>{cursor.classList.add('active');follower.classList.add('active');});el.addEventListener('mouseleave',()=>{cursor.classList.remove('active');follower.classList.remove('active');});});
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-brand" style="text-decoration:none;cursor:default;">
+            <div class="nav-brand-icon">SR</div>
+            <span
+              style="background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">sajithrahman.developer</span>
+          </div>
+          <p>Software Engineer — Odoo, NetSuite, APIs, Mobile &amp; Networking specialist.</p>
+        </div>
+        <div>
+          <div class="footer-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">More</div>
+          <ul class="footer-links">
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="assets/sajithrahman_resume2025.pdf" target="_blank">Download CV</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="mailto:sajith.rahman.am@outlook.com">sajith.rahman.am@outlook.com</a></li>
+            <li><a href="#">Calicut / Coimbatore, India</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Sajith Rahman A.M — All rights reserved.</p>
+        <p class="made-with">Made with <span class="heart">❤️</span> and lots of ☕</p>
+      </div>
+    </div>
+  </footer>
 
-// Navbar scroll
-window.addEventListener('scroll',()=>{ document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50); });
+  <script>
+    // Cursor
+    const cursor = document.getElementById('cursor'), follower = document.getElementById('cursorFollower');
+    let mx = 0, my = 0, fx = 0, fy = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+    (function anim() { fx += (mx - fx) * .12; fy += (my - fy) * .12; follower.style.left = fx + 'px'; follower.style.top = fy + 'px'; requestAnimationFrame(anim); })();
+    document.querySelectorAll('a,button,.glass-card,.tech-item').forEach(el => { el.addEventListener('mouseenter', () => { cursor.classList.add('active'); follower.classList.add('active'); }); el.addEventListener('mouseleave', () => { cursor.classList.remove('active'); follower.classList.remove('active'); }); });
 
-// Hamburger
-const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileNav');
-ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');});
-function closeMobileNav(){ham.classList.remove('open');mob.classList.remove('open');}
+    // Navbar scroll
+    window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
 
-// Theme toggle
-document.getElementById('themeToggle').addEventListener('click',()=>{
-  document.body.classList.toggle('light-mode');
-  const icon=document.getElementById('themeIcon');
-  icon.className=document.body.classList.contains('light-mode')?'bi bi-moon-fill':'bi bi-sun-fill';
-});
+    // Hamburger
+    const ham = document.getElementById('hamburger'), mob = document.getElementById('mobileNav');
+    ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+    function closeMobileNav() { ham.classList.remove('open'); mob.classList.remove('open'); }
 
-// Reveal
-const obs=new IntersectionObserver(entries=>entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('revealed'),i*80);obs.unobserve(e.target);}}),{threshold:.12});
-document.querySelectorAll('[data-reveal]').forEach(el=>obs.observe(el));
+    // Theme toggle
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      const icon = document.getElementById('themeIcon');
+      icon.className = document.body.classList.contains('light-mode') ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
+    });
 
-// Timeline
-const tlObs=new IntersectionObserver(entries=>entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*150);}),{threshold:.1});
-document.querySelectorAll('.timeline-item').forEach(el=>tlObs.observe(el));
+    // Reveal
+    const obs = new IntersectionObserver(entries => entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('revealed'), i * 80); obs.unobserve(e.target); } }), { threshold: .12 });
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
 
-// 3D tilt card
-const card=document.getElementById('profileCard');
-if(card){
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    const x=(e.clientX-r.left)/r.width-.5;
-    const y=(e.clientY-r.top)/r.height-.5;
-    card.style.transform=`perspective(600px) rotateX(${-y*12}deg) rotateY(${x*12}deg) scale(1.02)`;
-  });
-  card.addEventListener('mouseleave',()=>{card.style.transform='';});
-}
+    // Timeline
+    const tlObs = new IntersectionObserver(entries => entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 150); }), { threshold: .1 });
+    document.querySelectorAll('.timeline-item').forEach(el => tlObs.observe(el));
 
-// Counters
-function animateCounter(el, target, suffix='') {
-  let start = 0;
-  const step = target / 50;
-  const interval = setInterval(() => {
-    start = Math.min(start + step, target);
-    el.textContent = Math.ceil(start) + suffix;
-    if (start >= target) clearInterval(interval);
-  }, 30);
-}
-
-const counterObs = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounter(document.getElementById('expCounter'), 3, '+');
-      animateCounter(document.getElementById('projCounter'), 10, '+');
-      animateCounter(document.getElementById('verCounter'), 5, '');
-      animateCounter(document.getElementById('clientCounter'), 15, '+');
-      counterObs.disconnect();
+    // 3D tilt card
+    const card = document.getElementById('profileCard');
+    if (card) {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5;
+        const y = (e.clientY - r.top) / r.height - .5;
+        card.style.transform = `perspective(600px) rotateX(${-y * 12}deg) rotateY(${x * 12}deg) scale(1.02)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
     }
-  });
-}, { threshold: 0.3 });
-const statsSection = document.getElementById('expCounter');
-if(statsSection) counterObs.observe(statsSection.closest('.glass-card') || statsSection);
-</script>
-<script src="js/transitions.js"></script>
+
+    // Counters
+    function animateCounter(el, target, suffix = '') {
+      let start = 0;
+      const step = target / 50;
+      const interval = setInterval(() => {
+        start = Math.min(start + step, target);
+        el.textContent = Math.ceil(start) + suffix;
+        if (start >= target) clearInterval(interval);
+      }, 30);
+    }
+
+    const counterObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(document.getElementById('expCounter'), 3, '+');
+          animateCounter(document.getElementById('projCounter'), 10, '+');
+          animateCounter(document.getElementById('verCounter'), 5, '');
+          animateCounter(document.getElementById('clientCounter'), 15, '+');
+          counterObs.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    const statsSection = document.getElementById('expCounter');
+    if (statsSection) counterObs.observe(statsSection.closest('.glass-card') || statsSection);
+  </script>
+  <script src="js/transitions.js"></script>
 </body>
+
 </html>

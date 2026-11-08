@@ -88,6 +88,7 @@ html {
   background-color: var(--bg-canvas);
   color: var(--text-primary);
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--space-800) + var(--space-400));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -720,6 +721,39 @@ body {
 .reveal-word.active {
   opacity: 1;
   color: #FFFFFF;
+}
+
+/* ==========================================================================
+   SUBPAGE HERO SECTION (About, Skills, Projects, Resume, Contact, 404)
+   Standard layout with ample top clearance for the floating navigation bar
+   ========================================================================== */
+
+.hero-section {
+  padding-top: calc(var(--space-900) + var(--space-600));
+  padding-bottom: var(--space-700);
+  position: relative;
+}
+
+.hero-content-container {
+  max-width: var(--hero-content-max);
+}
+
+.hero-headline {
+  margin-top: var(--space-200);
+  margin-bottom: var(--space-200);
+}
+
+.hero-subheadline {
+  color: var(--text-secondary);
+  max-width: 640px;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-200);
+  margin-top: var(--space-300);
 }
 
 /* ==========================================================================

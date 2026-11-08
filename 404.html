@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | Sajith Rahman</title>
+  <meta name="description" content="The requested page could not be found. Return to the homepage of Sajith Rahman.">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <!-- Approved Fonts: Manrope (primary) & Geist Mono (code/metrics only) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons (Approved per B6) -->
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+
+  <!-- Core Design System CSS -->
+  <link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body>
+  <!-- Pinned Scroll Progress Indicator (Scrolling Animation) -->
+  <div class="scroll-progress-container" aria-hidden="true">
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  </div>
+
+
+
+  <!-- Skip Link for Accessibility (B10) -->
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Floating Navigation Bar (B7) -->
+  <header class="nav-wrapper">
+    <nav class="nav-floating-bar" id="navFloatingBar" aria-label="Main Navigation">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-brand-logo">SR</div>
+        <span class="title-3">Sajith Rahman</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link title-4">Home</a></li>
+        <li><a href="about.html" class="nav-link title-4">About</a></li>
+        <li><a href="skills.html" class="nav-link title-4">Skills</a></li>
+        <li><a href="projects.html" class="nav-link title-4">Projects</a></li>
+        <li><a href="resume.html" class="nav-link title-4">Resume</a></li>
+        <li><a href="contact.html" class="nav-link title-4">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle visual theme" title="Toggle theme">
+          <i class="ph ph-sun" id="themeToggleIcon"></i>
+        </button>
+        <button class="nav-menu-toggle" id="navMenuToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="ph ph-list" style="font-size:20px;"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Navigation Panel (B7) -->
+  <div class="mobile-nav-panel" id="mobileNavPanel" aria-label="Mobile Navigation">
+    <ul class="mobile-nav-links">
+      <li class="mobile-nav-item"><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">About</a></li>
+      <li class="mobile-nav-item"><a href="skills.html" class="mobile-nav-link">Skills</a></li>
+      <li class="mobile-nav-item"><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+      <li class="mobile-nav-item"><a href="resume.html" class="mobile-nav-link">Resume</a></li>
+      <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <main id="mainContent">
+    <section class="hero-section" style="min-height:70vh;display:flex;align-items:center;">
+      <div class="container">
+        <div class="hero-content-container" style="text-align:center;">
+          <div class="section-badge caption-1" style="margin-bottom:16px;">
+            <i class="ph ph-warning-circle" style="font-size:16px;"></i>
+            Status code 404
+          </div>
+
+          <h1 class="heading-1 hero-headline" style="margin-bottom:16px;">
+            <span class="hero-heading-gradient">
+              The requested page could not be located
+            </span>
+          </h1>
+
+          <p class="body-2 hero-subheadline" style="margin-bottom:32px;">
+            The resource you are looking for may have moved or no longer exists. Use the primary navigation or return to the overview page.
+          </p>
+
+          <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+            <a href="index.html" class="btn btn-primary button-md">
+              <i class="ph ph-house" style="font-size:18px;"></i>
+              Return to homepage
+            </a>
+            <a href="contact.html" class="btn btn-secondary button-md">
+              <i class="ph ph-envelope-simple" style="font-size:18px;"></i>
+              Contact Sajith
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Semantic Footer (B10) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="title-3" style="margin-bottom:4px;">Sajith Rahman</div>
+          <div class="caption-2" style="color:var(--text-secondary);">
+            Software Engineer &amp; ERP Technical Specialist · Calicut and Coimbatore, India
+          </div>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="about.html" class="footer-link caption-1">About</a></li>
+          <li><a href="projects.html" class="footer-link caption-1">Projects</a></li>
+          <li><a href="skills.html" class="footer-link caption-1">Skills</a></li>
+          <li><a href="resume.html" class="footer-link caption-1">Resume</a></li>
+          <li><a href="contact.html" class="footer-link caption-1">Contact</a></li>
+        </ul>
+
+        <div style="display:flex;align-items:center;gap:16px;">
+          <a href="https://www.linkedin.com/in/sajith-rahman-a-m-3b3130229/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn Profile">
+            <i class="ph ph-linkedin-logo" style="font-size:20px;"></i>
+          </a>
+          <a href="mailto:sajith.rahman.am@outlook.com" class="footer-link" aria-label="Direct Email">
+            <i class="ph ph-envelope-simple" style="font-size:20px;"></i>
+          </a>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;padding-top:16px;border-top:1px solid var(--border-subtle);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+        <span class="caption-4" style="color:var(--text-muted);">
+          © 2026 Sajith Rahman. All rights reserved.
+        </span>
+        <div style="display:flex;gap:16px;">
+          <a href="contact.html" class="footer-link caption-4">Privacy Policy</a>
+          <a href="contact.html" class="footer-link caption-4">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>
+

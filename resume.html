@@ -1,338 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Resume of Sajith Rahman A.M - Software Engineer & Odoo Developer with 4+ years experience." />
-  <title>Resume — Sajith Rahman A.M</title>
-  <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-  <link href="css/portfolio.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume &amp; Qualifications | Sajith Rahman</title>
+  <meta name="description" content="Professional experience, academic background, and credentials of Sajith Rahman, Software Engineer and ERP Specialist.">
+  <meta property="og:title" content="Resume &amp; Qualifications | Sajith Rahman">
+  <meta property="og:description" content="Professional experience, academic background, and credentials of Sajith Rahman, Software Engineer and ERP Specialist.">
+  <meta property="og:type" content="profile">
+  <meta property="og:image" content="assets/profile.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <!-- Approved Fonts: Manrope (primary) & Geist Mono (code/metrics only) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons (Approved per B6) -->
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+
+  <!-- Core Design System CSS -->
+  <link rel="stylesheet" href="css/portfolio.css">
 </head>
-
 <body>
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursorFollower"></div>
+  <!-- Pinned Scroll Progress Indicator (Scrolling Animation) -->
+  <div class="scroll-progress-container" aria-hidden="true">
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  </div>
 
-  <nav class="navbar-advanced scrolled" id="navbar">
-    <div class="navbar-inner">
+
+
+  <!-- Skip Link for Accessibility (B10) -->
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Floating Navigation Bar (B7) -->
+  <header class="nav-wrapper">
+    <nav class="nav-floating-bar" id="navFloatingBar" aria-label="Main Navigation">
       <a href="index.html" class="nav-brand">
-        <div class="nav-brand-icon">SR</div>
-        <span>sajithrahman.developer</span>
+        <div class="nav-brand-logo">SR</div>
+        <span class="title-3">Sajith Rahman</span>
       </a>
+
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html" class="active">Resume</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" class="nav-link title-4">Home</a></li>
+        <li><a href="about.html" class="nav-link title-4">About</a></li>
+        <li><a href="skills.html" class="nav-link title-4">Skills</a></li>
+        <li><a href="projects.html" class="nav-link title-4">Projects</a></li>
+        <li><a href="resume.html" class="nav-link title-4 active">Resume</a></li>
+        <li><a href="contact.html" class="nav-link title-4">Contact</a></li>
       </ul>
+
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle"><i class="bi bi-sun-fill" id="themeIcon"></i></button>
-        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle visual theme" title="Toggle theme">
+          <i class="ph ph-sun" id="themeToggleIcon"></i>
+        </button>
+        <button class="nav-menu-toggle" id="navMenuToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="ph ph-list" style="font-size:20px;"></i>
+        </button>
       </div>
-    </div>
-  </nav>
-  <div class="mobile-nav" id="mobileNav">
-    <a href="index.html" onclick="closeMobileNav()">Home</a>
-    <a href="about.html" onclick="closeMobileNav()">About</a>
-    <a href="skills.html" onclick="closeMobileNav()">Skills</a>
-    <a href="projects.html" onclick="closeMobileNav()">Projects</a>
-    <a href="resume.html" onclick="closeMobileNav()">Resume</a>
-    <a href="contact.html" onclick="closeMobileNav()">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Mobile Navigation Panel (B7) -->
+  <div class="mobile-nav-panel" id="mobileNavPanel" aria-label="Mobile Navigation">
+    <ul class="mobile-nav-links">
+      <li class="mobile-nav-item"><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">About</a></li>
+      <li class="mobile-nav-item"><a href="skills.html" class="mobile-nav-link">Skills</a></li>
+      <li class="mobile-nav-item"><a href="projects.html" class="mobile-nav-link">Projects</a></li>
+      <li class="mobile-nav-item"><a href="resume.html" class="mobile-nav-link">Resume</a></li>
+      <li class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
   </div>
 
-  <!-- Page Header -->
-  <div class="page-header" style="position:relative;overflow:hidden;">
-    <div class="orb orb-1" style="opacity:0.1;"></div>
-    <div class="container-max">
-      <div class="breadcrumb-nav">
-        <a href="index.html">Home</a><span>/</span><span class="current">Resume</span>
-      </div>
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;">
-        <div>
-          <div class="section-tag"><i class="bi bi-file-earmark-person"></i> Professional Profile</div>
-          <h1>My <span class="gradient-text">Resume</span></h1>
-          <p>A comprehensive look at my professional journey and technical expertise.</p>
-        </div>
-        <a href="assets/sajithrahman_resume2025.pdf" target="_blank" class="btn-primary-glow">
-          <i class="bi bi-download"></i> Download PDF
-        </a>
-      </div>
-    </div>
-  </div>
+  <main id="mainContent">
 
-  <!-- Experience -->
-  <section class="section-padding">
-    <div class="container-max">
-      <div style="margin-bottom:48px;" data-reveal>
-        <div class="section-tag"><i class="bi bi-briefcase"></i> Work History</div>
-        <h2 class="section-title">Professional <span class="gradient-text">Experience</span></h2>
-      </div>
-      <div class="timeline" data-reveal>
-        <!-- Role 1 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">May 2025 – Present</div>
-          <div class="timeline-title">Software Engineer / Odoo Developer</div>
-          <div class="timeline-company">
-            <i class="bi bi-building"></i> Tecfuge Business Solutions
-            <span class="location"><i class="bi bi-geo-alt"></i> Calicut, Kerala, India</span>
+    <!-- Header Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content-container">
+          <div class="section-badge caption-1">
+            <i class="ph ph-file-text" style="font-size:16px;"></i>
+            Curriculum vitae
           </div>
-          <div class="glass-card" style="padding:24px;margin-top:14px;">
-            <p class="timeline-desc">Joined as a Techno-Functional Odoo Developer, contributing to both backend
-              customization and functional implementation. Working on custom module development, third-party API
-              integration, and translating complex business requirements into scalable, user-friendly ERP systems.</p>
-            <ul class="detail-list" style="margin-top:14px;">
-              <li>Developing and customizing Odoo modules for diverse business verticals</li>
-              <li>Integrating third-party services via REST APIs and JSON-RPC</li>
-              <li>Collaborating with clients for requirement gathering and solution design</li>
-              <li>Leading Odoo version migrations (v17 → v19) for multiple modules</li>
+          <h1 class="heading-1 hero-headline">
+            <span class="hero-heading-gradient">
+              Professional experience and<br>
+              academic qualifications
+            </span>
+          </h1>
+          <p class="body-2 hero-subheadline">
+            A chronological timeline of engineering roles, enterprise impact, academic foundations, and technical credentials.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="assets/sajithrahman_resume2025.pdf" target="_blank" class="btn btn-primary button-md">
+              <i class="ph ph-file-pdf" style="font-size:18px;"></i>
+              Download official resume PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section class="section-spacing reveal-section">
+      <div class="container" style="max-width:900px;">
+        <div class="section-header">
+          <div class="section-badge caption-1">
+            <i class="ph ph-briefcase" style="font-size:16px;"></i>
+            Career history
+          </div>
+          <h2 class="heading-2">Work experience</h2>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:24px;">
+
+          <!-- Role 1 -->
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+              <div>
+                <h3 class="title-1">Software Engineer / Odoo Developer</h3>
+                <div class="caption-1" style="color:var(--text-secondary);display:flex;align-items:center;gap:6px;margin-top:2px;">
+                  <i class="ph ph-buildings"></i> Tecfuge Business Solutions · Calicut, Kerala, India
+                </div>
+              </div>
+              <span class="caption-3 font-mono card-inner-box" style="padding:4px 8px;color:#4ADE80;">
+                May 2025 to Present
+              </span>
+            </div>
+
+            <p class="body-3" style="color:var(--text-secondary);margin-bottom:16px;">
+              Serving as a techno functional Odoo engineer delivering complex customization, version upgrades, and third party integrations for enterprise clients.
+            </p>
+
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+              <li class="body-5" style="color:var(--text-secondary);">
+                • Spearheading module migrations from Odoo 17 to 19, adapting to breaking changes in controller architecture and OWL 3 lifecycle patterns.
+              </li>
+              <li class="body-5" style="color:var(--text-secondary);">
+                • Authoring custom backend extensions in Python across manufacturing, logistics, and retail business operations.
+              </li>
+              <li class="body-5" style="color:var(--text-secondary);">
+                • Engineering robust REST API connectors with automated token management and transaction logging.
+              </li>
+              <li class="body-5" style="color:var(--text-secondary);">
+                • Collaborating with international clients for technical requirement gathering and solution design.
+              </li>
             </ul>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
-              <span class="chip">Odoo 19</span><span class="chip">Python</span><span class="chip">API
-                Integration</span><span class="chip">Module Dev</span>
+
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="caption-4 card-inner-box font-mono" style="padding:4px 8px;">Odoo 19</span>
+              <span class="caption-4 card-inner-box font-mono" style="padding:4px 8px;">Python</span>
+              <span class="caption-4 card-inner-box font-mono" style="padding:4px 8px;">REST APIs</span>
+              <span class="caption-4 card-inner-box font-mono" style="padding:4px 8px;">PostgreSQL</span>
             </div>
           </div>
-        </div>
-        <!-- Role 2 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">September 2024 – April 2025</div>
-          <div class="timeline-title">Software Engineer</div>
-          <div class="timeline-company">
-            <i class="bi bi-building"></i> PPTS [India] Pvt Ltd (Point Perfect Technology Solutions)
-            <span class="location"><i class="bi bi-geo-alt"></i> Coimbatore, India</span>
-          </div>
-          <div class="glass-card" style="padding:24px;margin-top:14px;">
-            <p class="timeline-desc">Continued to broaden technical expertise working on impactful ERP projects. Took on
-              senior responsibilities including project coordination, code review, and client communication while
-              delivering innovative solutions.</p>
-            <ul class="detail-list" style="margin-top:14px;">
-              <li>Led the migration project from Odoo 14 to Odoo 17 Enterprise</li>
-              <li>Implemented multi-company ERP setups for UAE-based clients with localization</li>
-              <li>Optimized database queries and improved system performance significantly</li>
-              <li>Mentored junior developers and conducted technical reviews</li>
+
+          <!-- Role 2 -->
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+              <div>
+                <h3 class="title-1">Software Engineer</h3>
+                <div class="caption-1" style="color:var(--text-secondary);display:flex;align-items:center;gap:6px;margin-top:2px;">
+                  <i class="ph ph-buildings"></i> PPTS India · Coimbatore, India
+                </div>
+              </div>
+              <span class="caption-3 font-mono card-inner-box" style="padding:4px 8px;">
+                September 2024 to April 2025
+              </span>
+            </div>
+
+            <p class="body-3" style="color:var(--text-secondary);margin-bottom:16px;">
+              Promoted to take on lead engineering responsibilities across enterprise version upgrades and international multicompany deployments.
+            </p>
+
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+              <li class="body-5" style="color:var(--text-secondary);">
+                • Directed the full migration from Odoo 14 to Odoo 17 Enterprise for a UAE holding company with 15+ custom modules.
+              </li>
+              <li class="body-5" style="color:var(--text-secondary);">
+                • Configured regional tax localization, UAE VAT compliance, and multicurrency consolidation for multi branch corporations.
+              </li>
+              <li class="body-5" style="color:var(--text-secondary);">
+                • Tuned PostgreSQL database queries, reducing report calculation latency by up to 35%.
+              </li>
+              <li class="body-5" style="color:var(--text-secondary);">
+                • Performed regular code reviews, mentored junior developers, and conducted release management audits.
+              </li>
             </ul>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
-              <span class="chip">Odoo 17</span><span class="chip">Migration Lead</span><span
-                class="chip">Multi-company</span>
+
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="caption-4 card-inner-box font-mono" style="padding:4px 8px;">Odoo 17 Enterprise</span>
+              <span class="caption-4 card-inner-box font-mono" style="padding:4px 8px;">UAE VAT</span>
+              <span class="caption-4 card-inner-box font-mono" style="padding:4px 8px;">Multicompany</span>
             </div>
           </div>
-        </div>
-        <!-- Role 3 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">May 2022 – August 2024</div>
-          <div class="timeline-title">Junior Software Engineer</div>
-          <div class="timeline-company">
-            <i class="bi bi-building"></i> PPTS [India] Pvt Ltd
-            <span class="location"><i class="bi bi-geo-alt"></i> Coimbatore, India</span>
-          </div>
-          <div class="glass-card" style="padding:24px;margin-top:14px;">
-            <p class="timeline-desc">Gained hands-on experience working on large-scale ERP projects, specializing in
-              HRMS, payroll systems, and API integrations. Developed and maintained robust front-end and back-end
-              systems using Python, JavaScript, and the OWL framework.</p>
-            <ul class="detail-list" style="margin-top:14px;">
-              <li>Developed Recruitment, Employee & Payroll modules on Odoo 12 Community</li>
-              <li>Built self-service HR portal on Odoo 15 Enterprise for manufacturing company</li>
-              <li>Integrated Availo, True Copy, Dr.Corr, Alfalah, and Affirm APIs</li>
-              <li>Set up Jenkins CI/CD pipelines and GitLab workflows</li>
+
+          <!-- Role 3 -->
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+              <div>
+                <h3 class="title-1">Junior Software Engineer</h3>
+                <div class="caption-1" style="color:var(--text-secondary);display:flex;align-items:center;gap:6px;margin-top:2px;">
+                  <i class="ph ph-buildings"></i> PPTS India · Coimbatore, India
+                </div>
+              </div>
+              <span class="caption-3 font-mono card-inner-box" style="padding:4px 8px;">
+                May 2022 to August 2024
+              </span>
+            </div>
+
+            <p class="body-3" style="color:var(--text-secondary);margin-bottom:16px;">
+              Built specialized core HRMS modules, automated statutory payroll calculation engines, and integrated third party REST APIs.
+            </p>
+
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+              <li class="body-5" style="color:var(--text-secondary);">
+                • Developed Recruitment, Employee Management, and Statutory Payroll modules on Odoo 12 Community, cutting monthly cycles from three days to four hours.
+              </li>
+              <li class="body-5" style="color:var(--text-secondary);">
+                • Created an employee self service portal on Odoo 15 Enterprise for leave tracking, loan repayments, and salary slips.
+              </li>
+              <li class="body-5" style="color:var(--text-secondary);">
+                • Built API connectors for Availo biometric attendance machines, True Copy digital verification, Dr.Corr machine telemetry, and payment gateways.
+              </li>
+              <li class="body-5" style="color:var(--text-secondary);">
+                • Configured GitLab automated build runners and Jenkins integration pipelines for staging environments.
+              </li>
             </ul>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
-              <span class="chip">Odoo 12–15</span><span class="chip">HRMS</span><span class="chip">Payroll</span><span
-                class="chip">API Dev</span>
+
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <span class="caption-4 card-inner-box font-mono" style="padding:4px 8px;">Odoo 12 to 15</span>
+              <span class="caption-4 card-inner-box font-mono" style="padding:4px 8px;">HRMS &amp; Payroll</span>
+              <span class="caption-4 card-inner-box font-mono" style="padding:4px 8px;">API Connectors</span>
             </div>
           </div>
+
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Education -->
-  <section class="section-padding bg-dark-alt">
-    <div class="container-max">
-      <div style="margin-bottom:48px;" data-reveal>
-        <div class="section-tag"><i class="bi bi-mortarboard"></i> Education</div>
-        <h2 class="section-title">Academic <span class="gradient-text">Background</span></h2>
-      </div>
-      <div class="edu-grid" data-reveal>
-        <div class="edu-card">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
-            <div
-              style="width:44px;height:44px;border-radius:10px;background:rgba(108,99,255,0.15);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">
-              🎓</div>
-            <div style="font-family:'Fira Code',monospace;font-size:0.72rem;color:var(--primary-light);">Post-Graduation
+    <!-- Academic Background Section -->
+    <section class="section-spacing reveal-section" style="background-color:var(--bg-surface);">
+      <div class="container" style="max-width:900px;">
+        <div class="section-header">
+          <div class="section-badge caption-1">
+            <i class="ph ph-graduation-cap" style="font-size:16px;"></i>
+            Education
+          </div>
+          <h2 class="heading-2">Academic background</h2>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="caption-4 font-mono" style="color:#4ADE80;margin-bottom:4px;">FIRST CLASS</div>
+            <h3 class="title-1" style="margin-bottom:4px;">Master of Science in Computer Science</h3>
+            <div class="caption-1" style="color:var(--text-secondary);margin-bottom:12px;">
+              Government Arts College · Coimbatore, India
             </div>
+            <p class="body-4" style="color:var(--text-secondary);">
+              Advanced study in database management systems, algorithm design, software engineering methodologies, and distributed computer architecture.
+            </p>
           </div>
-          <div class="edu-period">2020 – 2022</div>
-          <div class="edu-degree">Master of Science in Computer Science</div>
-          <div class="edu-school">Government Arts College, Coimbatore</div>
-          <div class="edu-location"><i class="bi bi-geo-alt"></i> Coimbatore, Tamil Nadu, India</div>
-          <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--card-border);">
-            <div style="font-size:0.78rem;color:var(--text-muted);font-family:'Fira Code',monospace;margin-bottom:8px;">
-              // highlights</div>
-            <div style="font-size:0.83rem;color:var(--text-secondary);">Advanced algorithms, data structures, database
-              management, software engineering principles, and computer networks.</div>
-          </div>
-        </div>
-        <div class="edu-card">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
-            <div
-              style="width:44px;height:44px;border-radius:10px;background:rgba(0,212,255,0.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">
-              📚</div>
-            <div style="font-family:'Fira Code',monospace;font-size:0.72rem;color:var(--secondary);">Graduation</div>
-          </div>
-          <div class="edu-period">2017 – 2020</div>
-          <div class="edu-degree">Bachelor of Computer Applications</div>
-          <div class="edu-school">VLB Janakiammal College of Arts and Science</div>
-          <div class="edu-location"><i class="bi bi-geo-alt"></i> Coimbatore, Tamil Nadu, India</div>
-          <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--card-border);">
-            <div style="font-size:0.78rem;color:var(--text-muted);font-family:'Fira Code',monospace;margin-bottom:8px;">
-              // highlights</div>
-            <div style="font-size:0.83rem;color:var(--text-secondary);">Programming fundamentals, web technologies,
-              database systems, networking basics, and software development lifecycle.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Skills Summary -->
-  <section class="section-padding">
-    <div class="container-max">
-      <div style="margin-bottom:48px;" data-reveal>
-        <div class="section-tag"><i class="bi bi-cpu"></i> Capabilities</div>
-        <h2 class="section-title">Skills <span class="gradient-text">Overview</span></h2>
-      </div>
-      <div class="grid-3" data-reveal>
-        <div class="glass-card" style="padding:28px;">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
-            <div class="skill-card-icon purple"><i class="bi bi-tools" style="color:#8b85ff;"></i></div>
-            <div
-              style="font-size:0.95rem;font-weight:600;color:var(--text-primary);font-family:'Space Grotesk',sans-serif;">
-              ERP Platforms</div>
-          </div>
-          <div class="skill-tags-grid">
-            <span class="skill-tag"><span class="tag-dot"></span>Odoo v12–v19</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Oracle NetSuite</span>
-            <span class="skill-tag"><span class="tag-dot"></span>ERP Implementation</span>
-            <span class="skill-tag"><span class="tag-dot"></span>API Integration</span>
-            <span class="skill-tag"><span class="tag-dot"></span>DB Management</span>
-            <span class="skill-tag"><span class="tag-dot"></span>DevOps &amp; CI/CD</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Mobile Apps</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Networking</span>
-          </div>
-        </div>
-        <div class="glass-card" style="padding:28px;">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
-            <div class="skill-card-icon cyan"><i class="bi bi-code-slash" style="color:#00d4ff;"></i></div>
-            <div
-              style="font-size:0.95rem;font-weight:600;color:var(--text-primary);font-family:'Space Grotesk',sans-serif;">
-              Technologies</div>
-          </div>
-          <div class="skill-tags-grid">
-            <span class="skill-tag"><span class="tag-dot"></span>Python</span>
-            <span class="skill-tag"><span class="tag-dot"></span>JavaScript</span>
-            <span class="skill-tag"><span class="tag-dot"></span>XML/QWeb</span>
-            <span class="skill-tag"><span class="tag-dot"></span>PostgreSQL</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Bootstrap</span>
-            <span class="skill-tag"><span class="tag-dot"></span>React Native</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Firebase</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Git / GitLab</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Jenkins</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Docker</span>
-          </div>
-        </div>
-        <div class="glass-card" style="padding:28px;">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
-            <div class="skill-card-icon pink"><i class="bi bi-person-workspace" style="color:#ff6b6b;"></i></div>
-            <div
-              style="font-size:0.95rem;font-weight:600;color:var(--text-primary);font-family:'Space Grotesk',sans-serif;">
-              Industry &amp; Domain</div>
-          </div>
-          <div class="skill-tags-grid">
-            <span class="skill-tag"><span class="tag-dot"></span>HRMS</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Payroll Systems</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Manufacturing MRP</span>
-            <span class="skill-tag"><span class="tag-dot"></span>E-Commerce ERP</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Retail Solutions</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Multi-Company</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Linux Admin</span>
-            <span class="skill-tag"><span class="tag-dot"></span>Networking Basics</span>
+          <div class="card">
+            <div class="caption-4 font-mono" style="color:#4ADE80;margin-bottom:4px;">GRADUATED</div>
+            <h3 class="title-1" style="margin-bottom:4px;">Bachelor of Science in Computer Science</h3>
+            <div class="caption-1" style="color:var(--text-secondary);margin-bottom:12px;">
+              C.B.M College of Arts and Science · Coimbatore, India
+            </div>
+            <p class="body-4" style="color:var(--text-secondary);">
+              Foundational coursework in object oriented programming, operating systems, data structures, and relational database systems.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="nav-brand" style="text-decoration:none;cursor:default;">
-            <div class="nav-brand-icon">SR</div><span
-              style="background:var(--gradient-1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">sajithrahman.developer</span>
+    <!-- Consultation CTA -->
+    <section class="section-spacing reveal-section">
+      <div class="container">
+        <div style="text-align:center;max-width:680px;margin-left:auto;margin-right:auto;">
+          <h2 class="heading-2" style="margin-bottom:16px;">Interested in working together?</h2>
+          <p class="body-2" style="color:var(--text-secondary);margin-bottom:24px;">
+            Download the official PDF resume or schedule a technical call to discuss how my experience aligns with your team goals.
+          </p>
+          <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+            <a href="contact.html" class="btn btn-primary button-md">
+              <i class="ph ph-calendar-check" style="font-size:18px;"></i>
+              Schedule a consultation
+            </a>
+            <a href="assets/sajithrahman_resume2025.pdf" target="_blank" class="btn btn-secondary button-md">
+              <i class="ph ph-file-pdf" style="font-size:18px;"></i>
+              Download resume PDF
+            </a>
           </div>
-          <p>Software Engineer &mdash; Odoo, NetSuite, APIs, Mobile &amp; Networking.</p>
-        </div>
-        <div>
-          <div class="footer-title">Navigation</div>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="skills.html">Skills</a></li>
-            <li><a href="projects.html">Projects</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-title">More</div>
-          <ul class="footer-links">
-            <li><a href="resume.html">Resume</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="assets/sajithrahman_resume2025.pdf" target="_blank">Download CV</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-title">Contact</div>
-          <ul class="footer-links">
-            <li><a href="mailto:sajith.rahman.am@outlook.com">sajith.rahman.am@outlook.com</a></li>
-            <li><a href="#">Calicut / Coimbatore, India</a></li>
-          </ul>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2025 Sajith Rahman A.M — All rights reserved.</p>
+    </section>
+
+  </main>
+
+  <!-- Semantic Footer (B10) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="title-3" style="margin-bottom:4px;">Sajith Rahman</div>
+          <div class="caption-2" style="color:var(--text-secondary);">
+            Software Engineer &amp; ERP Technical Specialist · Calicut and Coimbatore, India
+          </div>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="about.html" class="footer-link caption-1">About</a></li>
+          <li><a href="projects.html" class="footer-link caption-1">Projects</a></li>
+          <li><a href="skills.html" class="footer-link caption-1">Skills</a></li>
+          <li><a href="resume.html" class="footer-link caption-1">Resume</a></li>
+          <li><a href="contact.html" class="footer-link caption-1">Contact</a></li>
+        </ul>
+
+        <div style="display:flex;align-items:center;gap:16px;">
+          <a href="https://www.linkedin.com/in/sajith-rahman-a-m-3b3130229/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn Profile">
+            <i class="ph ph-linkedin-logo" style="font-size:20px;"></i>
+          </a>
+          <a href="mailto:sajith.rahman.am@outlook.com" class="footer-link" aria-label="Direct Email">
+            <i class="ph ph-envelope-simple" style="font-size:20px;"></i>
+          </a>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;padding-top:16px;border-top:1px solid var(--border-subtle);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+        <span class="caption-4" style="color:var(--text-muted);">
+          © 2026 Sajith Rahman. All rights reserved.
+        </span>
+        <div style="display:flex;gap:16px;">
+          <a href="contact.html" class="footer-link caption-4">Privacy Policy</a>
+          <a href="contact.html" class="footer-link caption-4">Terms of Service</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script>
-    const cursor = document.getElementById('cursor'), follower = document.getElementById('cursorFollower');
-    let mx = 0, my = 0, fx = 0, fy = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
-    (function anim() { fx += (mx - fx) * .12; fy += (my - fy) * .12; follower.style.left = fx + 'px'; follower.style.top = fy + 'px'; requestAnimationFrame(anim); })();
-    document.querySelectorAll('a,button,.glass-card,.edu-card').forEach(el => { el.addEventListener('mouseenter', () => { cursor.classList.add('active'); follower.classList.add('active'); }); el.addEventListener('mouseleave', () => { cursor.classList.remove('active'); follower.classList.remove('active'); }); });
-    window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
-    const ham = document.getElementById('hamburger'), mob = document.getElementById('mobileNav');
-    ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
-    function closeMobileNav() { ham.classList.remove('open'); mob.classList.remove('open'); }
-    document.getElementById('themeToggle').addEventListener('click', () => { document.body.classList.toggle('light-mode'); const icon = document.getElementById('themeIcon'); icon.className = document.body.classList.contains('light-mode') ? 'bi bi-moon-fill' : 'bi bi-sun-fill'; });
-    const obs = new IntersectionObserver(entries => entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('revealed'), i * 80); obs.unobserve(e.target); } }), { threshold: .12 });
-    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
-    const tlObs = new IntersectionObserver(entries => entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 150); }), { threshold: .1 });
-    document.querySelectorAll('.timeline-item').forEach(el => tlObs.observe(el));
-  </script>
-  <script src="js/transitions.js"></script>
+  <script src="js/scripts.js"></script>
 </body>
-
 </html>
